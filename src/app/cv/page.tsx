@@ -12,7 +12,7 @@ export function generateMetadata(): Metadata {
 
 export default function Page() {
     return (<>
-        <h1>Curriculum Vitae</h1>
+        <h1><b>C</b>urriculum <b>V</b>itae</h1>
         {fullEducation()}
         {fullExperiences()}
         {fullProjects()}
@@ -68,13 +68,34 @@ function createEducation(schoolName: string, location: string, gpa: string, time
 function fullEducation(): JSX.Element {
     return (<>
         {section('Education')}
+
         {createEducation('Michigan State University', 'East Lansing, Michigan', '4.00',
         'September 2023 - December 2025', 'Bachelor of Science, Computer Science',
-        ['Spartan Brass', 'Honors College'], ['Alumni Distinguished Scholars Semi-finalist'])}
+        ['Spartan Brass', 'Honors College', 'Michigander Scholar','Running Club'],
+            ['Alumni Distinguished Scholars Semi-finalist',
+            'Honors College Invite', 'Professorial Assistantship'])}
+
         {createEducation('Delta College', 'University Center, Michigan', '3.99',
-        'September 2020 - April 2023', 'Associate in Science, General Science', [], [])}
+        'September 2020 - April 2023', 'Associate in Science, General Science',
+            ['Mid-Michigan Brass Band', 'Honors Political Science Project', 'Co-op',
+            'American Mathematical Association of Two Year Colleges (AMATYC) Competition'],
+            ['Jim and Janis Van Tiflin Mathematics Award', 'Board of Trustees Award', 'AMATYC Top Scorer'])}
+
         {createEducation('Bullock Creek High School', 'Midland, Michigan', '4.22 - look this up',
-        'September 2018 - May 2022', 'High School Diploma', [], [])}
+        'September 2018 - May 2022', 'High School Diploma',
+            [
+            'Varsity Band, Solo & Ensemble, Jazz Band - 4 years; Section Leader - 2 years',
+            'Mid-Michigan Brass Band',
+            'Varsity Soccer - 4 years',
+            'Varsity Track - 3 years (lost a year to Covid); Iron G Attendance Award',
+            'Varsity Robotics - 4 years; Entrepreneurship team leader - 2 years',
+            'National Honor Society'],
+            ['Valedictorian',
+            'Bullock Creek Area Business Scholarship',
+            'Tom Gilstad Award',
+            'Honors in Mathematics',
+            'Honors in Sciences',
+            'All-Conference Academics'])}
     </>)
 }
 

@@ -35,8 +35,6 @@ function subsection(sectionName: string): JSX.Element {
 
 function createEducation(schoolName: string, location: string, gpa: string, timeframe: string, degree: string,
                          activities: string[], awards: string[]): JSX.Element {
-    // TODO: add activities category
-    // TODO: add awards category
     return (<>
         <div className="two-part-row">
             <h3>{schoolName}</h3>
@@ -153,8 +151,13 @@ function fullExperiences(): JSX.Element {
 }
 
 
-function createProject(): JSX.Element {
+function createProject(title: string, description: string, link?: string): JSX.Element {
+
     return (<>
+        <h3>
+            {link ? <a href={link}>{title}</a> : title}
+        </h3>
+        <p>{description}</p>
     </>)
 }
 
@@ -164,7 +167,35 @@ function fullProjects(): JSX.Element {
     // Have images for the projects in the projects page, not in the CV
     return (<>
         {section('Projects')}
+
         {subsection('Personal Projects')}
+        {createProject('Personal Website', 'A personal website to tell my story ' +
+            'and to store information about my projects')}
+
+        {createProject("Snell's Law visualizer", "An online physics lab demonstration " +
+            "on the refraction of light")}
+
+        {createProject('LeCalculator', 'Coming soon...')}
+
         {subsection('School Projects')}
+        {createProject('Car Image Classifier', 'An image classifier created as a group project' +
+            'in my Machine Learning class at MSU')}
+
+        {createProject('NFL Game Predictor', 'Created summary statistics and model to ' +
+            'predict winners of NFL games in my Big Data Analysis class at MSU')}
+
+        {createProject('Backend Web and Microservices App', 'Projects created while ' +
+            'taking Cloud and Information Sciences class at MSU')}
+
+        {createProject('Autonomous Lane Keeping', 'Autonomous lane keeping simulation ' +
+            'created while taking an Autonomous Vehicles class at MSU')}
+
+        {createProject('Animation Editor', 'Tool to create animations for 2D ' +
+            'characters/images')}
+
+        {createProject('Logic Game', 'Group project in Software Design class ' +
+            'where we created a game that has the user combine logic gates')}
+
+        {createProject('Popping Blimps', 'Game created during Programming II class at Delta College')}
     </>)
 }

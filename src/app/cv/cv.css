@@ -1,6 +1,6 @@
 .sectionSeparator {
     height: 0.35em; /* or use em if you prefer, but pixels are clearer for lines */
-    background-color: blue;
+    background-color: rgba(100, 141, 227, 1);
     border: none; /* removes default border */
     margin-top: .5em;
     margin-bottom: .25em;

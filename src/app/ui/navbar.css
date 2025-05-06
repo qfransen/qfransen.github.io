@@ -12,7 +12,8 @@ nav {
 
 .nav-item {
     color: rgb(31,41,55);
-    padding: 1vw
+    padding: 1vw;
+    font-weight: bold
 }
 
 .nav-item:hover {

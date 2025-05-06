@@ -21,3 +21,9 @@
     align-items: baseline;
     justify-content: space-between;
 }
+
+.bullet-list {
+    list-style-type: disc;
+    padding-left: 1.5rem;
+    margin-top: 0.5rem;
+}

@@ -10,6 +10,7 @@ export function generateMetadata(): Metadata {
     }
 }
 
+// TODO: figure out padding styling to bring in the sides
 export default function Page() {
     return (<>
         <h1><b>C</b>urriculum <b>V</b>itae</h1>
@@ -37,7 +38,7 @@ function createEducation(schoolName: string, location: string, gpa: string, time
                          activities: string[], awards: string[]): JSX.Element {
     return (<>
         <div className="two-part-row">
-            <h3>{schoolName}</h3>
+            <h3 className={'underline-b'}>{schoolName}</h3>
             <p>{location}</p>
         </div>
         <div className="two-part-row">
@@ -45,19 +46,20 @@ function createEducation(schoolName: string, location: string, gpa: string, time
             <p>{timeframe}</p>
         </div>
 
-        <h4>Activities</h4>
+        <h4 className={'underline-squiggle'}>Activities</h4>
         <ul className={'bullet-list'}>
             {activities.map((bullet, index) => (
                 <li key={index}>{bullet}</li>
             ))}
         </ul>
 
-        <h4>Awards</h4>
+        <h4 className={'underline-squiggle'}>Awards</h4>
         <ul className={'bullet-list'}>
             {awards.map((bullet, index) => (
                 <li key={index}>{bullet}</li>
             ))}
         </ul>
+        <br/>
     </>)
 }
 
@@ -99,6 +101,7 @@ function fullEducation(): JSX.Element {
 
 
 function createExperience(company: string, location: string, role: string, timeframe: string, bullets: string[]): JSX.Element {
+    // TODO: look at padding styling instead of <br>
     return (<>
         <div className="two-part-row">
             <h3>{company}</h3>
@@ -113,6 +116,7 @@ function createExperience(company: string, location: string, role: string, timef
                 <li key={index}>{bullet}</li>
             ))}
         </ul>
+        <br/>
     </>)
 }
 
@@ -172,7 +176,7 @@ function fullProjects(): JSX.Element {
         {createProject('Personal Website', 'A personal website to tell my story ' +
             'and to store information about my projects')}
 
-        {createProject("Snell's Law visualizer", "An online physics lab demonstration " +
+        {createProject("Snell's Law Visualizer", "An online physics lab demonstration " +
             "on the refraction of light")}
 
         {createProject('LeCalculator', 'Coming soon...')}

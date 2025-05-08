@@ -1,3 +1,7 @@
+br {
+
+}
+
 .sectionSeparator {
     height: 0.35em; /* or use em if you prefer, but pixels are clearer for lines */
     background-color: rgba(100, 141, 227, 1);
@@ -26,4 +30,12 @@
     list-style-type: disc;
     padding-left: 1.5rem;
     margin-top: 0.5rem;
+}
+
+.underline-b {
+    text-decoration: underline blue;
+}
+
+.underline-squiggle {
+    text-decoration: underline wavy rgba(100, 141, 227, 1);
 }

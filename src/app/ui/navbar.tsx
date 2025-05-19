@@ -66,12 +66,21 @@ const Navbar = ({ pageTitle }: { pageTitle: string }) => {
                     <div className="absolute top-10 left-0 w-full shadow-md md:hidden nav-menu-open">
                         <div className="flex flex-col items-center py-4 space-y-4">
                             <Link
+                                href="/"
+                                className="nav-item"
+                                onClick={toggleMenu}
+                            >
+                                Home
+                            </Link>
+
+                            <Link
                                 href="/projects"
                                 className="nav-item"
                                 onClick={toggleMenu}
                             >
                                 Projects
                             </Link>
+
                             <Link
                                 href="/cv"
                                 className="nav-item"
@@ -79,6 +88,7 @@ const Navbar = ({ pageTitle }: { pageTitle: string }) => {
                             >
                                 CV
                             </Link>
+
                             <Link
                                 href="/hire"
                                 className="nav-item"

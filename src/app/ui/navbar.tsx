@@ -3,107 +3,77 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import { Menu, X } from 'lucide-react';
-import './navbar.css'
+import './navbar.css';
 
-// Navigation bar that should appear on the top of all pages in the web app
-const Navbar = ({ pageTitle }: { pageTitle: string }) => {
+const Navbar = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
     const toggleMenu = () => {
         setIsMenuOpen(!isMenuOpen);
     };
 
+    const navLinks = [
+        { href: "/", label: "Home" },
+        { href: "/projects", label: "Projects" },
+        { href: "/cv", label: "CV" },
+        { href: "/hire", label: "Hire Me" },
+    ];
+
     return (
-        // <nav className="fixed top-0 left-0 w-full bg-white/80 backdrop-blur-md z-50">
-        <nav className="fixed top-0 left-0 w-full z-50">
-            {/* Contents of Nav bar */}
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-12">
-                {/* Page Title - Left Side */}
-                <div className="text-2xl font-bold text-gray-800">
-                    {pageTitle}
-                </div>
-
-                {/* Desktop Navigation */}
-                <div className="hidden md:flex">
-                    <Link
-                        href="/"
-                        className="nav-item"
-                    >
-                        Home
+        <header className={`fixed top-4 left-0 right-0 z-50 flex justify-center px-4 ${isMenuOpen ? 'is-opened' : ''}`}>
+            <nav
+                className="relative inline-block px-6 md:px-10 bg-nav-bg rounded-full border border-solid border-nav-border backdrop-blur-md transition-all duration-300 ease-out shadow-lg"
+            >
+                <div className="flex items-center justify-between h-16">
+                    {/* Logo */}
+                    <Link href="/" aria-label="Home" className="text-0">
+                        <svg role="presentation" className="w-32" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140.16977 24.239535" fill="none" version="1.1">
+                            <g fill="#2a1816" transform="translate(-42.661116,-3.8207674)">
+                                <path d="M 63.72,6.733 V 26.058 H 60.356 V 10.911 h -0.054 l -6.015,15.147 h -2.23 L 45.895,10.911 h -0.04 V 26.058 H 42.746 V 6.733 h 4.822 l 5.566,14.324 h 0.081 L 59.091,6.733 h 4.63 z M 66.537,8.2 c 0,-0.541 0.197,-0.989 0.588,-1.355 0.39,-0.367 0.856,-0.546 1.4,-0.546 0.578,0 1.053,0.188 1.43,0.559 0.377,0.371 0.57,0.819 0.57,1.342 0,0.523 -0.193,0.975 -0.584,1.333 A 2.015,2.015 0 0 1 68.524,10.074 1.989,1.989 0 0 1 67.111,9.529 1.765,1.765 0 0 1 66.537,8.2 Z m 3.606,4.004 v 13.854 h -3.27 V 12.204 Z m 9.918,11.483 c 0.484,0 1.022,-0.112 1.605,-0.335 a 6.657,6.657 0 0 0 1.624,-0.89 v 3.033 a 6.6,6.6 0 0 1 -1.776,0.675 9.773,9.773 0 0 1 -2.184,0.228 c -2.046,0 -3.705,-0.644 -4.988,-1.932 -1.279,-1.289 -1.92,-2.935 -1.92,-4.94 0,-2.227 0.655,-4.061 1.96,-5.506 1.305,-1.44 3.158,-2.16 5.553,-2.16 0.615,0 1.234,0.08 1.857,0.236 0.628,0.157 1.121,0.34 1.494,0.546 v 3.127 a 6.718,6.718 0 0 0 -1.548,-0.854 4.494,4.494 0 0 0 -1.614,-0.304 c -1.288,0 -2.328,0.416 -3.122,1.252 -0.794,0.837 -1.189,1.964 -1.189,3.382 0,1.418 0.381,2.492 1.144,3.275 0.762,0.782 1.794,1.172 3.1,1.172 z M 92.602,11.976 c 0.26,0 0.493,0.018 0.704,0.053 0.211,0.036 0.382,0.08 0.53,0.135 v 3.301 c -0.17,-0.125 -0.422,-0.246 -0.75,-0.358 -0.327,-0.112 -0.726,-0.17 -1.197,-0.17 -0.803,0 -1.48,0.336 -2.032,1.011 -0.552,0.676 -0.83,1.713 -0.83,3.114 v 6.996 h -3.27 V 12.204 h 3.27 v 2.183 h 0.054 c 0.296,-0.756 0.75,-1.347 1.35,-1.772 0.606,-0.425 1.328,-0.64 2.176,-0.64 h -0.005 z m 1.404,7.359 c 0,-2.29 0.65,-4.107 1.947,-5.445 1.296,-1.337 3.1,-2.008 5.405,-2.008 2.171,0 3.866,0.644 5.086,1.932 1.22,1.289 1.83,3.029 1.83,5.22 0,2.193 -0.65,4.036 -1.946,5.365 -1.297,1.328 -3.064,1.995 -5.298,1.995 -2.234,0 -3.862,-0.631 -5.127,-1.893 -1.265,-1.261 -1.897,-2.983 -1.897,-5.166 z m 3.409,-0.112 c 0,1.445 0.327,2.55 0.987,3.315 0.66,0.764 1.597,1.145 2.826,1.145 1.229,0 2.094,-0.38 2.718,-1.145 0.623,-0.765 0.933,-1.897 0.933,-3.396 0,-1.498 -0.323,-2.617 -0.965,-3.377 -0.645,-0.76 -1.547,-1.141 -2.709,-1.141 -1.162,0 -2.126,0.398 -2.79,1.194 -0.664,0.797 -0.991,1.929 -0.991,3.405 z m 15.726,-3.382 c 0,0.465 0.148,0.832 0.444,1.1 0.296,0.264 0.956,0.6 1.974,1.002 1.305,0.524 2.225,1.11 2.749,1.758 0.53,0.654 0.79,1.44 0.79,2.367 0,1.302 -0.503,2.348 -1.507,3.14 -1.005,0.792 -2.364,1.186 -4.073,1.186 a 9.84,9.84 0 0 1 -1.911,-0.21 c -0.7,-0.14 -1.292,-0.318 -1.776,-0.533 v -3.207 a 8.085,8.085 0 0 0 1.92,0.984 c 0.686,0.241 1.305,0.362 1.866,0.362 0.74,0 1.282,-0.103 1.637,-0.308 0.354,-0.206 0.525,-0.555 0.525,-1.038 0,-0.448 -0.184,-0.828 -0.548,-1.141 -0.363,-0.313 -1.058,-0.667 -2.072,-1.074 -1.207,-0.5 -2.063,-1.069 -2.566,-1.7 -0.507,-0.63 -0.758,-1.427 -0.758,-2.398 0,-1.248 0.498,-2.277 1.494,-3.077 0.996,-0.806 2.288,-1.208 3.871,-1.208 0.484,0 1.032,0.054 1.633,0.161 0.605,0.107 1.108,0.246 1.511,0.416 v 3.1 a 7.185,7.185 0 0 0 -1.511,-0.742 5.096,5.096 0 0 0 -1.718,-0.31 c -0.624,0 -1.108,0.122 -1.454,0.363 -0.345,0.242 -0.52,0.577 -0.52,0.998 z m 7.365,3.494 c 0,-2.29 0.651,-4.107 1.947,-5.445 1.296,-1.337 3.099,-2.008 5.405,-2.008 2.171,0 3.866,0.644 5.086,1.932 1.22,1.289 1.83,3.029 1.83,5.22 0,2.193 -0.65,4.036 -1.946,5.365 -1.296,1.328 -3.064,1.995 -5.298,1.995 -2.233,0 -3.862,-0.631 -5.126,-1.893 -1.265,-1.261 -1.898,-2.983 -1.898,-5.166 z m 3.405,-0.112 c 0,1.445 0.327,2.55 0.986,3.315 0.66,0.764 1.597,1.145 2.826,1.145 1.229,0 2.095,-0.38 2.719,-1.145 0.623,-0.765 0.933,-1.897 0.933,-3.396 0,-1.498 -0.323,-2.617 -0.965,-3.377 -0.646,-0.76 -1.547,-1.141 -2.709,-1.141 -1.162,0 -2.126,0.398 -2.79,1.194 -0.664,0.797 -0.991,1.929 -0.991,3.405 z m 21.714,-4.353 h -4.871 v 11.184 h -3.311 V 14.87 h -2.323 v -2.666 h 2.323 v -1.928 c 0,-1.454 0.476,-2.649 1.427,-3.58 0.951,-0.93 2.166,-1.395 3.655,-1.395 0.395,0 0.749,0.023 1.054,0.063 0.305,0.04 0.579,0.103 0.812,0.183 v 2.819 a 3.268,3.268 0 0 0 -0.569,-0.229 2.97,2.97 0 0 0 -0.933,-0.134 c -0.687,0 -1.211,0.215 -1.584,0.64 -0.372,0.425 -0.551,1.056 -0.551,1.892 v 1.673 h 4.871 V 9.095 l 3.283,-0.998 v 4.111 h 3.31 v 2.666 h -3.31 v 6.483 c 0,0.854 0.157,1.454 0.467,1.807 0.309,0.349 0.798,0.528 1.466,0.528 0.189,0 0.418,-0.045 0.682,-0.134 0.265,-0.09 0.498,-0.197 0.695,-0.323 v 2.698 c -0.206,0.116 -0.551,0.224 -1.031,0.322 -0.48,0.099 -0.956,0.148 -1.427,0.148 -1.377,0 -2.413,-0.367 -3.099,-1.096 -0.691,-0.734 -1.032,-1.834 -1.032,-3.31 v -7.118 z m 27.442,11.17 -1.767,-4.87 h -7.746 l -1.687,4.87 h -3.508 l 7.33,-19.307 h 3.566 l 7.356,19.308 h -3.544 z M 167.451,9.628 h -0.08 a 7.226,7.226 0 0 1 -0.283,1.386 l -2.646,7.444 h 5.938 l -2.659,-7.444 c -0.09,-0.232 -0.18,-0.693 -0.27,-1.386 z M 178.34,26.04 V 6.734 h 3.211 v 19.308 h -3.211 z" id="path132"></path>
+                            </g>
+                        </svg>
                     </Link>
-                    <Link
-                        href="/projects"
-                        className="nav-item"
-                    >
-                        Projects
-                    </Link>
-                    <Link
-                        href="/cv"
-                        className="nav-item"
-                    >
-                        CV
-                    </Link>
-                    <Link
-                        href="/hire"
-                        className="nav-item"
-                    >
-                        Hire Me
-                    </Link>
-                </div>
 
-                {/* Mobile Menu Toggle */}
-                <div className="md:hidden">
-                    <button
-                        onClick={toggleMenu}
-                        className="text-gray-800 focus:outline-none"
-                    >
-                        {isMenuOpen ? <X size={24}/> : <Menu size={24}/>}
-                    </button>
-                </div>
+                    {/* Desktop Navigation */}
+                    <ul className="hidden md:flex items-center space-x-1">
+                        {navLinks.map((link) => (
+                            <li key={link.href}>
+                                <Link href={link.href} className="nav-item">
+                                    {link.label}
+                                </Link>
+                            </li>
+                        ))}
+                    </ul>
 
-                {/* Mobile Navigation Menu */}
-                {isMenuOpen && (
-                    <div className="absolute top-10 left-0 w-full shadow-md md:hidden nav-menu-open">
-                        <div className="flex flex-col items-center py-4 space-y-4">
-                            <Link
-                                href="/"
-                                className="nav-item"
-                                onClick={toggleMenu}
-                            >
-                                Home
-                            </Link>
-
-                            <Link
-                                href="/projects"
-                                className="nav-item"
-                                onClick={toggleMenu}
-                            >
-                                Projects
-                            </Link>
-
-                            <Link
-                                href="/cv"
-                                className="nav-item"
-                                onClick={toggleMenu}
-                            >
-                                CV
-                            </Link>
-
-                            <Link
-                                href="/hire"
-                                className="nav-item"
-                                onClick={toggleMenu}
-                            >
-                                Hire Me
-                            </Link>
-                        </div>
+                    {/* Mobile Menu Toggle */}
+                    <div className="md:hidden">
+                        <button
+                            onClick={toggleMenu}
+                            className="text-nav-text focus:outline-none"
+                            aria-label="Open Menu"
+                        >
+                            {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+                        </button>
                     </div>
-                )}
+                </div>
+            </nav>
+
+            {/* Mobile Navigation Menu */}
+            <div className={`mobile-menu ${isMenuOpen ? 'is-open' : ''}`}>
+                <div className="flex flex-col items-center justify-center h-full space-y-8">
+                    {navLinks.map((link) => (
+                        <Link
+                            key={link.href}
+                            href={link.href}
+                            className="text-4xl font-bold text-nav-text"
+                            onClick={toggleMenu}
+                        >
+                            {link.label}
+                        </Link>
+                    ))}
+                </div>
             </div>
-            {/* Gradient just at the bottom of the nav bar */}
-            {/*<div className="absolute bottom-0 left-0 w-full h-2*/}
-            {/*        bg-gradient-to-b from-blue-200/90 to-blue-200/5" />*/}
-        </nav>
+        </header>
     );
 };
 

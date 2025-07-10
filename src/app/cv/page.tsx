@@ -1,6 +1,7 @@
 import Navbar from "@/app/ui/navbar";
 import { Metadata } from 'next'
 import {JSX} from "react";
+import Section from '@/app/ui/section';
 import './cv.css'
 
 // Generate title for this page
@@ -10,33 +11,41 @@ export function generateMetadata(): Metadata {
     }
 }
 
-// TODO: figure out padding styling to bring in the sides
 export default function Page() {
-    return (<>
-        <h1><b>C</b>urriculum <b>V</b>itae</h1>
-        {fullEducation()}
-        {fullExperiences()}
-        {fullProjects()}
-    </>);
+    return (<div className={'cv-container'}>
+        <h1 className={"content-wrapper"}><b>C</b>urriculum <b>V</b>itae</h1>
+
+        <Section title="Education">
+            {fullEducation()}
+        </Section>
+
+        <Section title="Experience">
+            {fullExperiences()}
+        </Section>
+
+        <Section title="Projects">
+            {fullProjects()}
+        </Section>
+    </div>);
 }
 
-function section(sectionName: string): JSX.Element {
-    return (<>
-        <hr className={"sectionSeparator"} />
-        <h2>{sectionName}</h2>
-    </>);
-}
-
+// function section(sectionName: string): JSX.Element {
+//     return (<>
+//         <hr className={"sectionSeparator"} />
+//         <h2 className={"content-wrapper"}>{sectionName}</h2>
+//     </>);
+// }
+//
 function subsection(sectionName: string): JSX.Element {
     return (<>
         <hr className={"subsectionSeparator"} />
-        <h2>{sectionName}</h2>
+        <h2 className={"content-wrapper"}>{sectionName}</h2>
     </>);
 }
 
 function createEducation(schoolName: string, location: string, gpa: string, timeframe: string, degree: string,
                          activities: string[], awards: string[]): JSX.Element {
-    return (<>
+    return (<div className={"content-wrapper"}>
         <div className="two-part-row">
             <h3 className={'underline-b'}>{schoolName}</h3>
             <p>{location}</p>
@@ -60,20 +69,18 @@ function createEducation(schoolName: string, location: string, gpa: string, time
             ))}
         </ul>
         <br/>
-    </>)
+    </div>)
 }
 
 // Creates the entire education section
 // All education constants can be found here
 function fullEducation(): JSX.Element {
     return (<>
-        {section('Education')}
-
         {createEducation('Michigan State University', 'East Lansing, Michigan', '4.00',
         'September 2023 - December 2025', 'Bachelor of Science, Computer Science',
         ['Spartan Brass', 'Honors College', 'Michigander Scholar','Running Club'],
             ['Alumni Distinguished Scholars Semi-finalist',
-            'Honors College Invite', 'Professorial Assistantship'])}
+            'Honors College Invite', 'Professorial Assistantship', 'TODO: look up MSU scholarships'])}
 
         {createEducation('Delta College', 'University Center, Michigan', '3.99',
         'September 2020 - April 2023', 'Associate in Science, General Science',
@@ -102,7 +109,7 @@ function fullEducation(): JSX.Element {
 
 function createExperience(company: string, location: string, role: string, timeframe: string, bullets: string[]): JSX.Element {
     // TODO: look at padding styling instead of <br>
-    return (<>
+    return (<div className={"content-wrapper"}>
         <div className="two-part-row">
             <h3>{company}</h3>
             <p>{location}</p>
@@ -117,14 +124,12 @@ function createExperience(company: string, location: string, role: string, timef
             ))}
         </ul>
         <br/>
-    </>)
+    </div>)
 }
 
 // Creates all the experience section
 function fullExperiences(): JSX.Element {
     return (<>
-        {section('Experience')}
-
         {createExperience('Auto-Owners Insurance', 'Lansing, Michigan', 'Web Development Intern',
         'May 2025 - August 2025', ['Coming Soon'])}
 
@@ -142,10 +147,11 @@ function fullExperiences(): JSX.Element {
             'Organized the implementation of a new product for the company’s web systems to ' +
             'ensure the applications were capable on time for the product release\n'])}
 
-        {createExperience('Nexteer Automotive', 'Saginaw Michigan', 'Engineering Co-op',
+        {createExperience('Nexteer Automotive', 'Saginaw, Michigan', 'Engineering Co-op',
         'Aprl 2023 - August 2023',
             ['Created learning materials for new software and developed Python scripts to make simulation setup more efficient for new and experienced users',
-            'Programmed an interface for lab equipment in Visual Basic .NET to provide new data collection capabilities and improve user experience'])}
+            'Programmed an interface for lab equipment in Visual Basic .NET to provide new data collection capabilities and improve user experience',
+            'Awarded Nexteer Scholarship for outstanding academic and professional performance'])}
 
         {createExperience('US Soccer Federation', 'Midland, Michigan', 'Soccer Referee',
         'August 2018 - November 2022',
@@ -158,12 +164,12 @@ function fullExperiences(): JSX.Element {
 function createProject(title: string, description: string, link?: string): JSX.Element {
     const fullLink = link ? `/projects#${link}` : undefined;
 
-    return (<>
+    return (<div className={"content-wrapper"}>
         <h3>
             {link ? <a href={fullLink}>{title}</a> : title}
         </h3>
         <p>{description}</p>
-    </>)
+    </div>)
 }
 
 // Creates all the projects
@@ -171,8 +177,6 @@ function fullProjects(): JSX.Element {
     // TODO: make links to sections of the projects page for where the projects will be.
     // Have images for the projects in the projects page, not in the CV
     return (<>
-        {section('Projects')}
-
         {subsection('Personal Projects')}
         {createProject('Personal Website', 'A personal website to tell my story ' +
             'and to store information about my projects',

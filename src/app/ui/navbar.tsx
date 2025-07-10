@@ -25,7 +25,8 @@ const Navbar = () => {
                 className="relative inline-block px-6 md:px-10 bg-nav-bg rounded-full border border-solid border-nav-border backdrop-blur-md transition-all duration-300 ease-out shadow-lg"
             >
                 <div className="flex items-center justify-between h-16">
-                    {/* Logo */}
+                    {/* Logo
+                    TODO: update this logo */}
                     <Link href="/" aria-label="Home" className="text-0">
                         <svg role="presentation" className="w-32" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140.16977 24.239535" fill="none" version="1.1">
                             <g fill="#2a1816" transform="translate(-42.661116,-3.8207674)">

@@ -1,0 +1,61 @@
+/* src/app/ui/section.css */
+.section-container {
+    width: 100%;
+    margin-top: 1.5rem;
+}
+
+.section-header-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+
+.section-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 250px;
+    padding: 0.75rem 2rem;
+    background-color: #5a7d9a; /* Muted blue-gray from screenshot */
+    color: #4a2c2a;             /* Dark reddish-brown text */
+    font-family: sans-serif;
+    font-size: 1.5rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 50px; /* This creates the pill shape */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.section-button:hover {
+    background-color: #6b8daa; /* Lighter shade for hover */
+}
+
+.section-title {
+    flex-grow: 1;
+    text-align: center;
+}
+
+.toggle-icon {
+    margin-left: 1rem;
+    font-size: 1.5rem;
+    line-height: 1;
+}
+
+/* Animation for the content */
+.section-content {
+    overflow: hidden;
+    transition: max-height 0.5s ease-in-out,
+    opacity 0.5s ease-in-out;
+}
+
+.section-content.closed {
+    max-height: 0;
+    opacity: 0;
+}
+
+.section-content.open {
+    /* A large value to ensure it can contain all content */
+    max-height: 5000px;
+    opacity: 1;
+}

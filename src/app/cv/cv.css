@@ -1,3 +1,13 @@
+.cv-container {
+    width: 100%;
+}
+
+.content-wrapper {
+    /* Apply the horizontal margins */
+    margin-left: 20vw;
+    margin-right: 20vw;
+}
+
 br {
 
 }

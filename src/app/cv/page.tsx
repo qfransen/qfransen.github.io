@@ -77,6 +77,11 @@ function createEducation(schoolName: string, location: string, gpa: string, time
 function fullEducation(): JSX.Element {
     return (<>
         {createEducation('Michigan State University', 'East Lansing, Michigan', '4.00',
+          'January 2026 - May 2027', 'Master, Computer Science',
+          ['Spartan Brass', 'Honors College', 'Michigander Scholar','Running Club'],
+          ['Research Assistant'])}
+
+        {createEducation('Michigan State University', 'East Lansing, Michigan', '3.98',
         'September 2023 - December 2025', 'Bachelor of Science, Computer Science',
         ['Spartan Brass', 'Honors College', 'Michigander Scholar','Running Club'],
             ['Alumni Distinguished Scholars Semi-finalist',
@@ -130,8 +135,30 @@ function createExperience(company: string, location: string, role: string, timef
 // Creates all the experience section
 function fullExperiences(): JSX.Element {
     return (<>
+        {createExperience('Honeywell',
+        'Atlanta, Georgia', 'Intern',
+        'May 2026 - August 2026', [
+          "I don't know yet", "Cool AI projects to come later"
+          ])}
+
+        {createExperience('Michigan State University - Mobility Lab',
+        'East Lansing, Michigan', 'Computer Vision Research Assistant',
+        'January 2026 - Current', [
+            'Created ML pipelines for processing thousands of images on the MSU HPCC supercomputer',
+            'Tested and developed ML models for image segmentation and object detection',
+            'Used multiple image APIs to automatically gather images and metadata'
+          ]
+        )}
+
         {createExperience('Auto-Owners Insurance', 'Lansing, Michigan', 'Web Development Intern',
-        'May 2025 - August 2025', ['Coming Soon'])}
+        'May 2025 - August 2025', [
+          'Added features to web applications using a full-stack Angular and C# framework, ' +
+          'enhancing user experience and meeting business specifications',
+          'Analyzed database query frequency to discover and correct inefficiencies, ' +
+          'improving database performance with indices and code fixes',
+          'Collaborated in a development team by creating pull requests, commenting on code reviews, ' +
+          'and developing documentation for projects']
+        )}
 
         {createExperience('Michigan State University - HAAIL',
         'East Lansing, Michigan', 'Research Assistant', 'September 2023 - May 2025',

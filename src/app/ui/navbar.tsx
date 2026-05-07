@@ -27,6 +27,7 @@ const Navbar = () => {
                 <div className="flex items-center justify-between h-16">
                     {/* Logo
                     TODO: update this logo */}
+                    {/*
                     <Link href="/" aria-label="Home" className="text-0">
                         <svg role="presentation" className="w-32" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140.16977 24.239535" fill="none" version="1.1">
                             <g fill="#2a1816" transform="translate(-42.661116,-3.8207674)">
@@ -34,7 +35,8 @@ const Navbar = () => {
                             </g>
                         </svg>
                     </Link>
-
+                    */}
+                    
                     {/* Desktop Navigation */}
                     <ul className="hidden md:flex items-center space-x-1">
                         {navLinks.map((link) => (

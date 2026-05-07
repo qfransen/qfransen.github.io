@@ -1,4 +1,3 @@
-import Navbar from "@/app/ui/navbar";
 import { Metadata } from 'next'
 import {JSX} from "react";
 import Section from '@/app/ui/section';

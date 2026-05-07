@@ -12,9 +12,9 @@ export default {
   		colors: {
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',
-  			'nav-bg': 'rgba(117,183,225,0.61)',
-  			'nav-border': 'rgba(158,171,227,0.4)',
-  			'nav-text': '#2a1816',
+			'nav-bg': 'hsl(var(--background) / 0.8)',
+			'nav-border': 'hsl(var(--border))',
+			'nav-text': 'hsl(var(--foreground))',
   			card: {
   				DEFAULT: 'hsl(var(--card))',
   				foreground: 'hsl(var(--card-foreground))'

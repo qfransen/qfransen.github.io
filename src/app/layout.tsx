@@ -1,6 +1,14 @@
 import type { Metadata } from "next";
+import { Lato } from "next/font/google";
 import "./globals.css";
 import Navbar from "./ui/navbar";
+
+// Configure Lato font
+const lato = Lato({
+  subsets: ["latin"],
+  weight: ["100", "300", "400", "700", "900"], // Add the weights to use
+  variable: "--font-lato",
+});
 
 export const metadata: Metadata = {
     title: "Quinn Fransen",
@@ -17,7 +25,7 @@ export default function RootLayout({
     <html lang="en">
       {/* font-serif gives you the traditional document look, while font-sans uses the un-serifed variant */}
       <body
-        className="font-serif antialiased"
+        className={`${lato.variable} font-sans antialiased`}
       >
         <Navbar />
         {children}

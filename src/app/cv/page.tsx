@@ -13,7 +13,7 @@ export function generateMetadata(): Metadata {
 
 export default function Page() {
     return (<div className={'cv-container'}>
-        <h1 className={"content-wrapper"}><b>C</b>urriculum <b>V</b>itae</h1>
+        <h1 className={"content-wrapper"}>Curriculum Vitae</h1>
 
         <Section title="Education">
             {fullEducation()}

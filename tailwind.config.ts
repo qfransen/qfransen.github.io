@@ -10,7 +10,7 @@ export default {
   theme: {
   	extend: {
 			fontFamily: {
-				sans: ['"Computer Modern Sans"', 'Arial', 'Helvetica', 'sans-serif'],
+				sans: ['var(--font-lato)', 'Arial', 'Helvetica', 'sans-serif'],
 				serif: ['"Computer Modern Serif"', 'serif']
 			},
   		colors: {

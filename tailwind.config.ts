@@ -9,6 +9,10 @@ export default {
   ],
   theme: {
   	extend: {
+			fontFamily: {
+				sans: ['"Computer Modern Sans"', 'Arial', 'Helvetica', 'sans-serif'],
+				serif: ['"Computer Modern Serif"', 'serif']
+			},
   		colors: {
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',

@@ -16,8 +16,8 @@
     justify-content: center;
     min-width: 250px;
     padding: 0.75rem 2rem;
-    background-color: #5a7d9a; /* Muted blue-gray from screenshot */
-    color: #4a2c2a;             /* Dark reddish-brown text */
+    background-color: hsl(var(--foreground));
+    color: hsl(var(--background));
     font-family: sans-serif;
     font-size: 1.5rem;
     font-weight: bold;
@@ -28,7 +28,7 @@
 }
 
 .section-button:hover {
-    background-color: #6b8daa; /* Lighter shade for hover */
+    background-color: hsl(var(--foreground) / 0.8);
 }
 
 .section-title {

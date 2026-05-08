@@ -1,14 +1,18 @@
 import type { Metadata } from "next";
-import { Lato } from "next/font/google";
+import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "./ui/navbar";
 import { ThemeProvider } from "@/components/theme-provider";
 
-// Configure Lato font
-const lato = Lato({
+
+const geistSans = Geist({
+  variable: "--font-geist-sans",
   subsets: ["latin"],
-  weight: ["100", "300", "400", "700", "900"], // Add the weights to use
-  variable: "--font-lato",
+});
+
+const geistMono = Geist_Mono({
+  variable: "--font-geist-mono",
+  subsets: ["latin"],
 });
 
 export const metadata: Metadata = {
@@ -23,10 +27,9 @@ export default function RootLayout({
 }>) {
 
   return (
-    <html lang="en">
-      {/* font-serif gives you the traditional document look, while font-sans uses the un-serifed variant */}
+    <html lang="en" suppressHydrationWarning>
       <body
-        className={`${lato.variable} font-sans antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <ThemeProvider
           attribute="class"

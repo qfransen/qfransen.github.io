@@ -13,7 +13,8 @@ interface Cell {
 }
 
 export default function SplashScreen() {
-  const [showSplash, setShowSplash] = useState(false);
+  const [showSplash, setShowSplash] = useState(true); // Default to true to prevent FOUC of the homepage
+  const [isClient, setIsClient] = useState(false);
   const [displayedText, setDisplayedText] = useState('');
   const [isTypingComplete, setIsTypingComplete] = useState(false);
   const [isTransitioning, setIsTransitioning] = useState(false);
@@ -25,17 +26,20 @@ export default function SplashScreen() {
   const cellSize = 24; // Size of each character cell
 
   useEffect(() => {
+    setIsClient(true);
     // Check session storage to only show once per visit
     const hasSeenSplash = sessionStorage.getItem('hasSeenSplash');
-    if (!hasSeenSplash) {
-      setShowSplash(true);
+    if (hasSeenSplash) {
+      setShowSplash(false);
+      setPhase('done');
+    } else {
       sessionStorage.setItem('hasSeenSplash', 'true');
     }
   }, []);
 
   // 1. Typewriter Effect
   useEffect(() => {
-    if (!showSplash || isTransitioning) return;
+    if (!isClient || !showSplash || isTransitioning) return;
 
     let currentIndex = 0;
     let timeoutId: NodeJS.Timeout;
@@ -57,7 +61,7 @@ export default function SplashScreen() {
 
     timeoutId = setTimeout(typeChar, 500);
     return () => clearTimeout(timeoutId);
-  }, [showSplash, isTransitioning]);
+  }, [isClient, showSplash, isTransitioning]);
 
   // 2. Trigger Listener
   const handleTrigger = useCallback((e: Event) => {
@@ -191,41 +195,64 @@ export default function SplashScreen() {
     fadeRaf = requestAnimationFrame(animateFade);
 
     return () => cancelAnimationFrame(fadeRaf);
-  }, [phase]); // Removed cells dependency
+  }, [phase]);
 
-  if (!showSplash) return null;
+  // Provide a minimal, blocking inline script to hide the splash screen IMMEDIATELY
+  // before React even hydrates, completely preventing the FOUC for returning visitors.
+  const inlineScript = `
+    try {
+      if (sessionStorage.getItem('hasSeenSplash')) {
+        document.documentElement.classList.add('hide-splash');
+      }
+    } catch (e) {}
+  `;
+
+  if (phase === 'done' || !showSplash) return null;
 
   return (
-    <div
-      className={`fixed inset-0 z-[100] overflow-hidden ${
-        isTypingComplete && !isTransitioning ? 'cursor-pointer' : ''
-      }`}
-      style={{
-        backgroundColor: phase === 'fading' || phase === 'done' ? 'transparent' : 'var(--background)',
-        transition: 'background-color 0.8s ease-out'
-      }}
-    >
-      {/* Typewriter Text */}
-      {phase === 'typing' && (
-        <div className="absolute inset-0 flex items-center justify-center bg-background text-foreground">
-          <div className="font-mono text-2xl md:text-4xl flex items-center">
-            {displayedText}
-            <span className="animate-[pulse_1s_step-end_infinite] ml-1 opacity-100">_</span>
-          </div>
-        </div>
-      )}
+    <>
+      <script dangerouslySetInnerHTML={{ __html: inlineScript }} />
+      <style>{`
+        .hide-splash #splash-screen-root {
+          display: none !important;
+        }
+      `}</style>
+      <div
+        id="splash-screen-root"
+        className={`fixed inset-0 z-[100] overflow-hidden ${
+          isTypingComplete && !isTransitioning ? 'cursor-pointer' : ''
+        }`}
+        style={{
+          // Main background turns transparent during transition, we rely on the cells
+          backgroundColor: phase === 'typing' ? 'var(--background)' : 'transparent',
+          transition: 'background-color 0s'
+        }}
+      >
+        {/* Fill the background with solid color until the cells render to hide homepage */}
+        {phase === 'expanding' && cells.length === 0 && (
+          <div className="absolute inset-0 bg-background" />
+        )}
 
-      {/* Matrix Effect */}
-      {(phase === 'expanding' || phase === 'fading') && (
-        <div
-          className="absolute inset-0 font-mono text-foreground font-bold text-opacity-80"
-          style={{
-            fontSize: `${cellSize}px`,
-            lineHeight: `${cellSize}px`
-          }}
-        >
-          {cells.map(cell => (
-            cell.visible && cell.opacity > 0 && (
+        {/* Typewriter Text */}
+        {phase === 'typing' && (
+          <div className="absolute inset-0 flex items-center justify-center bg-background text-foreground">
+            <div className="font-mono text-2xl md:text-4xl flex items-center">
+              {displayedText}
+              <span className="animate-[pulse_1s_step-end_infinite] ml-1 opacity-100">_</span>
+            </div>
+          </div>
+        )}
+
+        {/* Matrix Effect */}
+        {(phase === 'expanding' || phase === 'fading') && (
+          <div
+            className="absolute inset-0 font-mono text-foreground font-bold text-opacity-80"
+            style={{
+              fontSize: `${cellSize}px`,
+              lineHeight: `${cellSize}px`
+            }}
+          >
+            {cells.map(cell => (
               <span
                 key={cell.id}
                 style={{
@@ -235,15 +262,19 @@ export default function SplashScreen() {
                   opacity: cell.opacity,
                   width: `${cellSize}px`,
                   height: `${cellSize}px`,
-                  textAlign: 'center'
+                  textAlign: 'center',
+                  // Ensure every cell has a solid background to cover the site beneath it
+                  backgroundColor: 'var(--background)',
+                  // Hide completely if not visible during expansion phase
+                  visibility: cell.visible ? 'visible' : 'hidden'
                 }}
               >
                 {cell.char}
               </span>
-            )
-          ))}
-        </div>
-      )}
-    </div>
+            ))}
+          </div>
+        )}
+      </div>
+    </>
   );
 }

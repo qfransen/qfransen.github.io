@@ -37,14 +37,14 @@ export default function Page() {
 //
 function subsection(sectionName: string): JSX.Element {
     return (<>
-        <hr className={"subsectionSeparator content-wrapper"} />
-        <h2 className={"content-wrapper underline-b"}>{sectionName}</h2>
+        <hr className={"subsectionSeparator"} />
+        <h2 className={"content-wrapper"}>{sectionName}</h2>
     </>);
 }
 
 function createEducation(schoolName: string, location: string, gpa: string, timeframe: string, degree: string,
                          activities: string[], awards: string[]): JSX.Element {
-    return (<div className={"content-wrapper cv-entry"}>
+    return (<div className={"content-wrapper"}>
         <div className="two-part-row">
             <h3 className={'underline-b'}>{schoolName}</h3>
             <p>{location}</p>
@@ -67,6 +67,7 @@ function createEducation(schoolName: string, location: string, gpa: string, time
                 <li key={index}>{bullet}</li>
             ))}
         </ul>
+        <br/>
     </div>)
 }
 
@@ -111,7 +112,8 @@ function fullEducation(): JSX.Element {
 
 
 function createExperience(company: string, location: string, role: string, timeframe: string, bullets: string[]): JSX.Element {
-    return (<div className={"content-wrapper cv-entry"}>
+    // TODO: look at padding styling instead of <br>
+    return (<div className={"content-wrapper"}>
         <div className="two-part-row">
             <h3>{company}</h3>
             <p>{location}</p>
@@ -125,6 +127,7 @@ function createExperience(company: string, location: string, role: string, timef
                 <li key={index}>{bullet}</li>
             ))}
         </ul>
+        <br/>
     </div>)
 }
 
@@ -187,7 +190,7 @@ function fullExperiences(): JSX.Element {
 function createProject(title: string, description: string, link?: string): JSX.Element {
     const fullLink = link ? `/projects#${link}` : undefined;
 
-    return (<div className={"content-wrapper cv-entry"}>
+    return (<div className={"content-wrapper"}>
         <h3>
             {link ? <a href={fullLink}>{title}</a> : title}
         </h3>

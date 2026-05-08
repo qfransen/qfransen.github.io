@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
-import { Lato } from "next/font/google";
-import "./globals.css";
+import { Lato } from "next/font/google";import "./globals.css";
 import Navbar from "./ui/navbar";
+import { ThemeProvider } from "@/components/theme-provider";
+
 
 // Configure Lato font
 const lato = Lato({
   subsets: ["latin"],
-  weight: ["100", "300", "400", "700", "900"], // Add the weights to use
+  weight: ["100", "300", "400", "700", "900"], // Add the weights you plan to use
   variable: "--font-lato",
 });
 
@@ -22,13 +23,19 @@ export default function RootLayout({
 }>) {
 
   return (
-    <html lang="en">
-      {/* font-serif gives you the traditional document look, while font-sans uses the un-serifed variant */}
+    <html lang="en" suppressHydrationWarning>
       <body
         className={`${lato.variable} font-sans antialiased`}
       >
-        <Navbar />
-        {children}
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <Navbar />
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );

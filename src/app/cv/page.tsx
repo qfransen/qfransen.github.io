@@ -1,4 +1,3 @@
-import Navbar from "@/app/ui/navbar";
 import { Metadata } from 'next'
 import {JSX} from "react";
 import Section from '@/app/ui/section';
@@ -55,14 +54,14 @@ function createEducation(schoolName: string, location: string, gpa: string, time
             <p>{timeframe}</p>
         </div>
 
-        <h4 className={'underline-squiggle'}>Activities</h4>
+        <h4 className={'underline-b'}>Activities</h4>
         <ul className={'bullet-list'}>
             {activities.map((bullet, index) => (
                 <li key={index}>{bullet}</li>
             ))}
         </ul>
 
-        <h4 className={'underline-squiggle'}>Awards</h4>
+        <h4 className={'underline-b'}>Awards</h4>
         <ul className={'bullet-list'}>
             {awards.map((bullet, index) => (
                 <li key={index}>{bullet}</li>

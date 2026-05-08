@@ -14,7 +14,7 @@ br {
 
 .sectionSeparator {
     height: 0.35em; /* or use em if you prefer, but pixels are clearer for lines */
-    background-color: rgba(100, 141, 227, 1);
+    background-color: hsl(var(--foreground));
     border: none; /* removes default border */
     margin-top: .5em;
     margin-bottom: .25em;
@@ -23,7 +23,7 @@ br {
 .subsectionSeparator {
     height: 0.3em; /* or use em if you prefer, but pixels are clearer for lines */
     border: none;
-    border-top: 2px dashed blue;
+    border-top: 2px dashed hsl(var(--foreground));
     margin-top: .4em;
     margin-bottom: .25em;
 }
@@ -43,9 +43,9 @@ br {
 }
 
 .underline-b {
-    text-decoration: underline blue;
+    text-decoration: underline hsl(var(--foreground));
 }
 
 .underline-squiggle {
-    text-decoration: underline wavy rgba(100, 141, 227, 1);
+    text-decoration: underline wavy hsl(var(--foreground));
 }

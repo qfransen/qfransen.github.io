@@ -1,4 +1,3 @@
-import Navbar from "@/app/ui/navbar";
 import { Metadata } from 'next'
 
 // Generate title for the hire me page

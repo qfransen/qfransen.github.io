@@ -6,6 +6,10 @@
   --mainblue: rgba(100, 141, 227, 1);
 }
 
+body {
+  font-family: Computer Modern, Arial, Helvetica, sans-serif;
+}
+
 h1 {
   margin-left: auto;
   margin-right: auto;

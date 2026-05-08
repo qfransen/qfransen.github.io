@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 import { Menu, X } from 'lucide-react';
 import './navbar.css';
+import { ThemeToggle } from '@/components/theme-toggle';
 
 const Navbar = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -37,26 +38,30 @@ const Navbar = () => {
                     </Link>
                     */}
                     
-                    {/* Desktop Navigation */}
-                    <ul className="hidden md:flex items-center space-x-1">
-                        {navLinks.map((link) => (
-                            <li key={link.href}>
-                                <Link href={link.href} className="nav-item">
-                                    {link.label}
-                                </Link>
-                            </li>
-                        ))}
-                    </ul>
+                    <div className="flex items-center space-x-4">
+                        {/* Desktop Navigation */}
+                        <ul className="hidden md:flex items-center space-x-1">
+                            {navLinks.map((link) => (
+                                <li key={link.href}>
+                                    <Link href={link.href} className="nav-item">
+                                        {link.label}
+                                    </Link>
+                                </li>
+                            ))}
+                        </ul>
 
-                    {/* Mobile Menu Toggle */}
-                    <div className="md:hidden">
-                        <button
-                            onClick={toggleMenu}
-                            className="text-nav-text focus:outline-none"
-                            aria-label="Open Menu"
-                        >
-                            {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
-                        </button>
+                        <ThemeToggle />
+
+                        {/* Mobile Menu Toggle */}
+                        <div className="md:hidden">
+                            <button
+                                onClick={toggleMenu}
+                                className="text-nav-text focus:outline-none"
+                                aria-label="Open Menu"
+                            >
+                                {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+                            </button>
+                        </div>
                     </div>
                 </div>
             </nav>

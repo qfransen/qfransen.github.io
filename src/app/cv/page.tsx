@@ -12,7 +12,7 @@ export function generateMetadata(): Metadata {
 
 export default function Page() {
     return (<div className={'cv-container'}>
-        <h1 className={"content-wrapper"}><b>C</b>urriculum <b>V</b>itae</h1>
+        <h1 className={"content-wrapper"}>Curriculum Vitae</h1>
 
         <Section title="Education">
             {fullEducation()}
@@ -54,14 +54,14 @@ function createEducation(schoolName: string, location: string, gpa: string, time
             <p>{timeframe}</p>
         </div>
 
-        <h4 className={'underline-squiggle'}>Activities</h4>
+        <h4 className={'underline-b'}>Activities</h4>
         <ul className={'bullet-list'}>
             {activities.map((bullet, index) => (
                 <li key={index}>{bullet}</li>
             ))}
         </ul>
 
-        <h4 className={'underline-squiggle'}>Awards</h4>
+        <h4 className={'underline-b'}>Awards</h4>
         <ul className={'bullet-list'}>
             {awards.map((bullet, index) => (
                 <li key={index}>{bullet}</li>

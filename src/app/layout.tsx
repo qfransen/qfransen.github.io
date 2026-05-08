@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
-import { Lato } from "next/font/google";import "./globals.css";
+import { Lato } from "next/font/google";
+import "./globals.css";
 import Navbar from "./ui/navbar";
+import SplashScreen from "./ui/SplashScreen";
 import { ThemeProvider } from "@/components/theme-provider";
 
 
@@ -33,6 +35,7 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
+          <SplashScreen />
           <Navbar />
           {children}
         </ThemeProvider>

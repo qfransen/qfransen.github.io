@@ -8,14 +8,13 @@
     font-weight: 500;
     text-decoration: none;
     letter-spacing: 0.5px;
-    transition: color 0.3s ease-in-out, letter-spacing 0.3s ease-in-out;
+    transition: color 0.3s ease-in-out;
 }
 
 /* On hover, make the text bold and slightly darker */
 .nav-item:hover {
     font-weight: 700;
     color: hsl(var(--foreground));
-    letter-spacing: 1px;
 }
 
 /* Mobile Menu Styling */

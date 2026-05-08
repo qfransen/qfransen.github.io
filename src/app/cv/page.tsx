@@ -37,8 +37,8 @@ export default function Page() {
 //
 function subsection(sectionName: string): JSX.Element {
     return (<>
-        <hr className={"subsectionSeparator"} />
-        <h2 className={"content-wrapper"}>{sectionName}</h2>
+        <hr className={"subsectionSeparator content-wrapper"} />
+        <h2 className={"content-wrapper underline-b"}>{sectionName}</h2>
     </>);
 }
 

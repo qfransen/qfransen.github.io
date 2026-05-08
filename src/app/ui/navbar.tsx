@@ -6,19 +6,19 @@ import { Menu, X } from 'lucide-react';
 import './navbar.css';
 import { ThemeToggle } from '@/components/theme-toggle';
 
+const navLinks = [
+    { href: "/", label: "Home" },
+    { href: "/projects", label: "Projects" },
+    { href: "/cv", label: "CV" },
+    { href: "/hire", label: "Hire Me" },
+];
+
 const Navbar = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
     const toggleMenu = () => {
         setIsMenuOpen(!isMenuOpen);
     };
-
-    const navLinks = [
-        { href: "/", label: "Home" },
-        { href: "/projects", label: "Projects" },
-        { href: "/cv", label: "CV" },
-        { href: "/hire", label: "Hire Me" },
-    ];
 
     return (
         <header className={`fixed top-4 left-0 right-0 z-50 flex justify-center px-4 ${isMenuOpen ? 'is-opened' : ''}`}>

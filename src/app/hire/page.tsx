@@ -13,7 +13,7 @@ export default function Page() {
         <div className="space-y-6 max-w-lg">
 
             <h1 className="text-3xl font-bold tracking-tight">
-                Let's Connect
+                Let&apos;s Connect
             </h1>
 
             <p className="text-lg text-gray-600 dark:text-gray-300">

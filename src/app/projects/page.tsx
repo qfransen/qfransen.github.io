@@ -26,8 +26,14 @@ export default function Page() {
             "You're looking at it right now",
             ["next.js", "react", "typescript", "tailwindcss"],
           )}
-          {createProject("Snell's Law", "snells.png", undefined, undefined)}
-          {createProject("LeCalculator", undefined, undefined, undefined)}
+          {createProject("Snell's Law",
+            "snells.png",
+            "A webpage physics demo and data analysis project",
+            ["Javascript", "CSS", "Python"])}
+          {createProject("LeCalculator",
+            undefined,
+            "A personal project calculator and unit converter with built in Easter Eggs",
+            ["Javascript", "CSS"])}
         </div>
       </section>
 
@@ -44,29 +50,30 @@ export default function Page() {
           {createProject(
             "NFL Game Outcome Predictor",
             "football-scores.png",
-            undefined,
-            undefined,
+            "Big Data project in CSE482 that used machine learning and data processing " +
+            "techniques to predict the outcomes of NFL games.",
+            ["Python"],
           )}
           {createProject(
             "Backend Web Microservices App",
             undefined,
             undefined,
-            undefined,
+            ["Python", "SQLite"],
           )}
           {createProject(
             "Autonomous Lane Keeping",
             "autonomous1.png",
             undefined,
-            undefined,
+            ["ROS2", "Python"],
           )}
           {createProject(
             "Animation Editor",
             "animation.png",
             undefined,
-            undefined,
+            ["C++"],
           )}
-          {createProject("Logic Game", "logic-game.png", undefined, undefined)}
-          {createProject("Popping Blimps", "blimps.png", undefined, undefined)}
+          {createProject("Logic Game", "logic-game.png", undefined, ["C++"])}
+          {createProject("Popping Blimps", "blimps.png", undefined, ["Java"])}
         </div>
       </section>
     </div>

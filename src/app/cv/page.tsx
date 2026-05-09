@@ -293,7 +293,7 @@ function createProject(
   description: string,
   link?: string,
 ): JSX.Element {
-  const fullLink = link ? `/projects#${link}` : undefined;
+  const fullLink = link ? `/projects#${encodeURIComponent(link)}` : undefined;
 
   return (
     <div className={"content-wrapper cv-entry"}>

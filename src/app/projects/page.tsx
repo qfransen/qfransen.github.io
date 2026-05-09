@@ -26,14 +26,18 @@ export default function Page() {
             "You're looking at it right now",
             ["next.js", "react", "typescript", "tailwindcss"],
           )}
-          {createProject("Snell's Law",
+          {createProject(
+            "Snell's Law",
             "snells.png",
             "A webpage physics demo and data analysis project",
-            ["Javascript", "CSS", "Python"])}
-          {createProject("LeCalculator",
+            ["Javascript", "CSS", "Python"],
+          )}
+          {createProject(
+            "LeCalculator",
             undefined,
             "A personal project calculator and unit converter with built in Easter Eggs",
-            ["Javascript", "CSS"])}
+            ["Javascript", "CSS"],
+          )}
         </div>
       </section>
 
@@ -51,7 +55,7 @@ export default function Page() {
             "NFL Game Outcome Predictor",
             "football-scores.png",
             "Big Data project in CSE482 that used machine learning and data processing " +
-            "techniques to predict the outcomes of NFL games.",
+              "techniques to predict the outcomes of NFL games.",
             ["Python"],
           )}
           {createProject(
@@ -66,12 +70,9 @@ export default function Page() {
             undefined,
             ["ROS2", "Python"],
           )}
-          {createProject(
-            "Animation Editor",
-            "animation.png",
-            undefined,
-            ["C++"],
-          )}
+          {createProject("Animation Editor", "animation.png", undefined, [
+            "C++",
+          ])}
           {createProject("Logic Game", "logic-game.png", undefined, ["C++"])}
           {createProject("Popping Blimps", "blimps.png", undefined, ["Java"])}
         </div>

@@ -21,7 +21,8 @@ export default function Page() {
             <section className="mb-16">
                 <h2 className="mb-8 border-b pb-2">Personal Projects</h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    {createProject("Personal Website", undefined, undefined, undefined)}
+                    {createProject("Personal Website", undefined,
+                      "You're looking at it right now", ["next.js", "react", "typescript", "tailwindcss"])}
                     {createProject("Snell's Law", "snells.png", undefined, undefined)}
                     {createProject("LeCalculator", undefined, undefined, undefined)}
                 </div>
@@ -30,7 +31,9 @@ export default function Page() {
             <section className="mb-16">
                 <h2 className="mb-8 border-b pb-2">School Projects</h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    {createProject('Car Image Classifier', 'car-classifier.png', undefined, undefined)}
+                    {createProject('Car Image Classifier', 'car-classifier.png',
+                      "A group project in CSE404 at MSU that used Machine Learning to predict the types of " +
+                      "vehicles show in images", ["Python", "ML"])}
                     {createProject('NFL Game Outcome Predictor', 'football-scores.png', undefined, undefined)}
                     {createProject('Backend Web Microservices App', undefined, undefined, undefined)}
                     {createProject('Autonomous Lane Keeping', 'autonomous1.png', undefined, undefined)}

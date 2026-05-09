@@ -1,6 +1,7 @@
 import { Metadata } from "next";
 import { JSX } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import "./projects.css";
 
 const imageDir = "/images/projects/";
@@ -31,12 +32,14 @@ export default function Page() {
             "snells.png",
             "A webpage physics demo and data analysis project",
             ["Javascript", "CSS", "Python"],
+            "https://www.egr.msu.edu/~fransenq/projects/snells/",
           )}
           {createProject(
             "LeCalculator",
             undefined,
             "A personal project calculator and unit converter with built in Easter Eggs",
             ["Javascript", "CSS"],
+            "https://www.egr.msu.edu/~fransenq/projects/LeCalculator/",
           )}
         </div>
       </section>
@@ -86,19 +89,26 @@ function createProject(
   image?: string,
   description?: string,
   techStack?: string[],
+  link?: string,
 ): JSX.Element {
   const imgPath: string = imageDir + image;
   const alt_description: string = name + "-" + image;
   const sectionId = name.toLowerCase().replace(/\s+/g, "-"); // e.g., "Cool Project" -> "cool-project"
 
-  const displayTags = techStack?.slice(0, 3) || [];
-  const hiddenTags = techStack?.slice(3) || [];
+  const visibleTags: number = 3
+  const displayTags = techStack?.slice(0, visibleTags) || [];
+  const hiddenTags = techStack?.slice(visibleTags) || [];
 
-  return (
-    <div
-      id={sectionId}
-      className="project flex flex-col bg-card text-card-foreground rounded-lg border shadow-sm overflow-hidden hover:shadow-md transition-shadow duration-200"
-    >
+  // Define base styling and conditional hover effects
+  const baseClasses =
+    "project flex flex-col bg-card text-card-foreground rounded-lg border shadow-sm overflow-hidden transition-all duration-200 h-full";
+  const hoverClasses = link
+    ? "hover:shadow-lg hover:-translate-y-1 cursor-pointer" // Movement and heavier shadow if it's a link
+    : "hover:shadow-md";
+  const cardClasses = `${baseClasses} ${hoverClasses}`;
+
+  const CardContent = (
+    <>
       {image && (
         <div className="relative w-full h-48 bg-muted">
           <Image
@@ -152,6 +162,27 @@ function createProject(
           </div>
         )}
       </div>
+    </>
+  );
+
+  // Return wrapped in Next.js Link if a URL is provided, otherwise return a standard div
+  if (link) {
+    return (
+      <Link
+        href={link}
+        id={sectionId}
+        target="_blank"
+        rel="noopener noreferrer"
+        className={cardClasses}
+      >
+        {CardContent}
+      </Link>
+    );
+  }
+
+  return (
+    <div id={sectionId} className={cardClasses}>
+      {CardContent}
     </div>
   );
 }

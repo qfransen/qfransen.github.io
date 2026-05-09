@@ -64,20 +64,45 @@ export default function Page() {
           {createProject(
             "Backend Web Microservices App",
             undefined,
-            undefined,
-            ["Python", "SQLite"],
+            "Architected and developed a backend for a grocery store application utilizing 5 distinct, " +
+              "publicly addressable microservices. Implemented secure user authentication and authorization " +
+              "and combined everything using Docker Compose. Developed in CSE 380.",
+            [
+              "Python",
+              "SQLite",
+              "Flask",
+              "Docker",
+              "JSON Web Tokens (JWT)",
+              "RESTful APIs",
+            ],
           )}
           {createProject(
             "Autonomous Lane Keeping",
             "autonomous1.png",
-            undefined,
-            ["ROS2", "Python"],
+            "Simulated a lane keeping robot with dashed-lines for lanes. We used ROS2 to control the " +
+              "turtlebot simualtion. Project was for CSE 434.",
+            ["ROS2", "Python", "Gazebo Simulation"],
           )}
-          {createProject("Animation Editor", "animation.png", undefined, [
-            "C++",
-          ])}
-          {createProject("Logic Game", "logic-game.png", undefined, ["C++"])}
-          {createProject("Popping Blimps", "blimps.png", undefined, ["Java"])}
+          {createProject(
+            "Animation Editor",
+            "animation.png",
+            "Final project for CSE 335. Created an animation editor and playback machine using " +
+              "object-oriented programming principles.",
+            ["C++"],
+          )}
+          {createProject(
+            "Logic Game",
+            "logic-game.png",
+            "Team project in CSE 335. Created a game where the user adds in logic gates and " +
+              "our code responds the circuit output.",
+            ["C++"],
+          )}
+          {createProject(
+            "Popping Blimps",
+            "blimps.png",
+            "Game project from Delta's 184 course. Made fun of the 'Chinese spy blimp' in early 2023.",
+            ["Java"],
+          )}
         </div>
       </section>
     </div>

@@ -1,6 +1,7 @@
 import { Metadata } from "next";
 import { JSX } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import "./projects.css";
 
 const imageDir = "/images/projects/";
@@ -26,8 +27,20 @@ export default function Page() {
             "You're looking at it right now",
             ["next.js", "react", "typescript", "tailwindcss"],
           )}
-          {createProject("Snell's Law", "snells.png", undefined, undefined)}
-          {createProject("LeCalculator", undefined, undefined, undefined)}
+          {createProject(
+            "Snell's Law",
+            "snells.png",
+            "A webpage physics demo and data analysis project",
+            ["Javascript", "CSS", "Python"],
+            "https://www.egr.msu.edu/~fransenq/projects/snells/",
+          )}
+          {createProject(
+            "LeCalculator",
+            undefined,
+            "A personal project calculator and unit converter with built in Easter Eggs",
+            ["Javascript", "CSS"],
+            "https://www.egr.msu.edu/~fransenq/projects/LeCalculator/",
+          )}
         </div>
       </section>
 
@@ -44,29 +57,52 @@ export default function Page() {
           {createProject(
             "NFL Game Outcome Predictor",
             "football-scores.png",
-            undefined,
-            undefined,
+            "Big Data project in CSE482 that used machine learning and data processing " +
+              "techniques to predict the outcomes of NFL games.",
+            ["Python"],
           )}
           {createProject(
             "Backend Web Microservices App",
             undefined,
-            undefined,
-            undefined,
+            "Architected and developed a backend for a grocery store application utilizing 5 distinct, " +
+              "publicly addressable microservices. Implemented secure user authentication and authorization " +
+              "and combined everything using Docker Compose. Developed in CSE 380.",
+            [
+              "Python",
+              "SQLite",
+              "Flask",
+              "Docker",
+              "JSON Web Tokens (JWT)",
+              "RESTful APIs",
+            ],
           )}
           {createProject(
             "Autonomous Lane Keeping",
             "autonomous1.png",
-            undefined,
-            undefined,
+            "Simulated a lane keeping robot with dashed-lines for lanes. We used ROS2 to control the " +
+              "turtlebot simualtion. Project was for CSE 434.",
+            ["ROS2", "Python", "Gazebo Simulation"],
           )}
           {createProject(
             "Animation Editor",
             "animation.png",
-            undefined,
-            undefined,
+            "Final project for CSE 335. Created an animation editor and playback machine using " +
+              "object-oriented programming principles.",
+            ["C++"],
           )}
-          {createProject("Logic Game", "logic-game.png", undefined, undefined)}
-          {createProject("Popping Blimps", "blimps.png", undefined, undefined)}
+          {createProject(
+            "Logic Game",
+            "logic-game.png",
+            "Team project in CSE 335. Created a game where the user adds in logic gates and " +
+              "our code responds the circuit output.",
+            ["C++"],
+          )}
+          {createProject(
+            "Popping Blimps",
+            "blimps.png",
+            "Game project from Delta's 184 course. Made fun of the 'Chinese spy blimp' in early 2023.",
+            ["Java"],
+          )}
         </div>
       </section>
     </div>
@@ -78,19 +114,26 @@ function createProject(
   image?: string,
   description?: string,
   techStack?: string[],
+  link?: string,
 ): JSX.Element {
   const imgPath: string = imageDir + image;
   const alt_description: string = name + "-" + image;
   const sectionId = name.toLowerCase().replace(/\s+/g, "-"); // e.g., "Cool Project" -> "cool-project"
 
-  const displayTags = techStack?.slice(0, 3) || [];
-  const hiddenTags = techStack?.slice(3) || [];
+  const visibleTags: number = 3;
+  const displayTags = techStack?.slice(0, visibleTags) || [];
+  const hiddenTags = techStack?.slice(visibleTags) || [];
 
-  return (
-    <div
-      id={sectionId}
-      className="project flex flex-col bg-card text-card-foreground rounded-lg border shadow-sm overflow-hidden hover:shadow-md transition-shadow duration-200"
-    >
+  // Define base styling and conditional hover effects
+  const baseClasses =
+    "project flex flex-col bg-card text-card-foreground rounded-lg border shadow-sm overflow-hidden transition-all duration-200 h-full";
+  const hoverClasses = link
+    ? "hover:shadow-lg hover:-translate-y-1 cursor-pointer" // Movement and heavier shadow if it's a link
+    : "hover:shadow-md";
+  const cardClasses = `${baseClasses} ${hoverClasses}`;
+
+  const CardContent = (
+    <>
       {image && (
         <div className="relative w-full h-48 bg-muted">
           <Image
@@ -144,6 +187,27 @@ function createProject(
           </div>
         )}
       </div>
+    </>
+  );
+
+  // Return wrapped in Next.js Link if a URL is provided, otherwise return a standard div
+  if (link) {
+    return (
+      <Link
+        href={link}
+        id={sectionId}
+        target="_blank"
+        rel="noopener noreferrer"
+        className={cardClasses}
+      >
+        {CardContent}
+      </Link>
+    );
+  }
+
+  return (
+    <div id={sectionId} className={cardClasses}>
+      {CardContent}
     </div>
   );
 }

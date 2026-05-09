@@ -7,7 +7,11 @@
 }
 
 body {
-  font-family: Computer Modern, Arial, Helvetica, sans-serif;
+  font-family:
+    Computer Modern,
+    Arial,
+    Helvetica,
+    sans-serif;
 }
 
 a {
@@ -16,7 +20,7 @@ a {
 }
 
 a::after {
-  content: '';
+  content: "";
   position: absolute;
   width: 100%;
   transform: scaleX(0);
@@ -51,8 +55,6 @@ h3 {
 h4 {
   font-size: 1.25em;
 }
-
-
 
 @layer base {
   :root {
@@ -109,8 +111,6 @@ h4 {
     --chart-5: 340 75% 55%;
   }
 }
-
-
 
 @layer base {
   * {

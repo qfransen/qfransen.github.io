@@ -1,34 +1,34 @@
-'use client';
+"use client";
 
-import React, { useState } from 'react';
-import Link from 'next/link';
-import { Menu, X } from 'lucide-react';
-import './navbar.css';
-import { ThemeToggle } from '@/components/theme-toggle';
+import React, { useState } from "react";
+import Link from "next/link";
+import { Menu, X } from "lucide-react";
+import "./navbar.css";
+import { ThemeToggle } from "@/components/theme-toggle";
 
 const navLinks = [
-    { href: "/", label: "Home" },
-    { href: "/projects", label: "Projects" },
-    { href: "/cv", label: "CV" },
-    { href: "/hire", label: "Hire Me" },
+  { href: "/", label: "Home" },
+  { href: "/projects", label: "Projects" },
+  { href: "/cv", label: "CV" },
+  { href: "/hire", label: "Hire Me" },
 ];
 
 const Navbar = () => {
-    const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-    const toggleMenu = () => {
-        setIsMenuOpen(!isMenuOpen);
-    };
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
 
-    return (
-        <header className={`fixed top-4 left-0 right-0 z-50 flex justify-center px-4 ${isMenuOpen ? 'is-opened' : ''}`}>
-            <nav
-                className="relative inline-block px-6 md:px-10 bg-nav-bg rounded-full border border-solid border-nav-border backdrop-blur-md transition-all duration-300 ease-out shadow-lg"
-            >
-                <div className="flex items-center justify-between h-16">
-                    {/* Logo
+  return (
+    <header
+      className={`fixed top-4 left-0 right-0 z-50 flex justify-center px-4 ${isMenuOpen ? "is-opened" : ""}`}
+    >
+      <nav className="relative inline-block px-6 md:px-10 bg-nav-bg rounded-full border border-solid border-nav-border backdrop-blur-md transition-all duration-300 ease-out shadow-lg">
+        <div className="flex items-center justify-between h-16">
+          {/* Logo
                     TODO: update this logo */}
-                    {/*
+          {/*
                     <Link href="/" aria-label="Home" className="text-0">
                         <svg role="presentation" className="w-32" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140.16977 24.239535" fill="none" version="1.1">
                             <g fill="#2a1816" transform="translate(-42.661116,-3.8207674)">
@@ -37,52 +37,52 @@ const Navbar = () => {
                         </svg>
                     </Link>
                     */}
-                    
-                    <div className="flex items-center space-x-4">
-                        {/* Desktop Navigation */}
-                        <ul className="hidden md:flex items-center space-x-1">
-                            {navLinks.map((link) => (
-                                <li key={link.href}>
-                                    <Link href={link.href} className="nav-item">
-                                        {link.label}
-                                    </Link>
-                                </li>
-                            ))}
-                        </ul>
 
-                        <ThemeToggle />
+          <div className="flex items-center space-x-4">
+            {/* Desktop Navigation */}
+            <ul className="hidden md:flex items-center space-x-1">
+              {navLinks.map((link) => (
+                <li key={link.href}>
+                  <Link href={link.href} className="nav-item">
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
 
-                        {/* Mobile Menu Toggle */}
-                        <div className="md:hidden">
-                            <button
-                                onClick={toggleMenu}
-                                className="text-nav-text focus:outline-none"
-                                aria-label="Open Menu"
-                            >
-                                {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </nav>
+            <ThemeToggle />
 
-            {/* Mobile Navigation Menu */}
-            <div className={`mobile-menu ${isMenuOpen ? 'is-open' : ''}`}>
-                <div className="flex flex-col items-center justify-center h-full space-y-8">
-                    {navLinks.map((link) => (
-                        <Link
-                            key={link.href}
-                            href={link.href}
-                            className="text-4xl font-bold text-nav-text"
-                            onClick={toggleMenu}
-                        >
-                            {link.label}
-                        </Link>
-                    ))}
-                </div>
+            {/* Mobile Menu Toggle */}
+            <div className="md:hidden">
+              <button
+                onClick={toggleMenu}
+                className="text-nav-text focus:outline-none"
+                aria-label="Open Menu"
+              >
+                {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+              </button>
             </div>
-        </header>
-    );
+          </div>
+        </div>
+      </nav>
+
+      {/* Mobile Navigation Menu */}
+      <div className={`mobile-menu ${isMenuOpen ? "is-open" : ""}`}>
+        <div className="flex flex-col items-center justify-center h-full space-y-8">
+          {navLinks.map((link) => (
+            <Link
+              key={link.href}
+              href={link.href}
+              className="text-4xl font-bold text-nav-text"
+              onClick={toggleMenu}
+            >
+              {link.label}
+            </Link>
+          ))}
+        </div>
+      </div>
+    </header>
+  );
 };
 
 export default Navbar;

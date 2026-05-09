@@ -1,51 +1,50 @@
 .cv-container {
-    width: 100%;
+  width: 100%;
 }
 
 .content-wrapper {
-    /* Apply the horizontal margins */
-    margin-left: 20vw;
-    margin-right: 20vw;
+  /* Apply the horizontal margins */
+  margin-left: 20vw;
+  margin-right: 20vw;
 }
 
 .cv-entry {
-    padding-bottom: 1.5rem;
+  padding-bottom: 1.5rem;
 }
 
 .sectionSeparator {
-    height: 0.35em; /* or use em if you prefer, but pixels are clearer for lines */
-    background-color: hsl(var(--foreground));
-    border: none; /* removes default border */
-    margin-top: .5em;
-    margin-bottom: .25em;
+  height: 0.35em; /* or use em if you prefer, but pixels are clearer for lines */
+  background-color: hsl(var(--foreground));
+  border: none; /* removes default border */
+  margin-top: 0.5em;
+  margin-bottom: 0.25em;
 }
 
 .subsectionSeparator {
-    height: 0.3em; /* or use em if you prefer, but pixels are clearer for lines */
-    border: none;
-    border-top: 2px dashed hsl(var(--foreground));
-    margin-top: .4em;
-    margin-bottom: .25em;
+  height: 0.3em; /* or use em if you prefer, but pixels are clearer for lines */
+  border: none;
+  border-top: 2px dashed hsl(var(--foreground));
+  margin-top: 0.4em;
+  margin-bottom: 0.25em;
 }
 
-
 .two-part-row {
-    display: flex;
-    flex-direction: row;
-    align-items: baseline;
-    justify-content: space-between;
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+  justify-content: space-between;
 }
 
 .bullet-list {
-    list-style-type: disc;
-    padding-left: 1.5rem;
-    margin-top: 0.5rem;
+  list-style-type: disc;
+  padding-left: 1.5rem;
+  margin-top: 0.5rem;
 }
 
 .underline-b {
-    text-decoration: underline hsl(var(--foreground));
+  text-decoration: underline hsl(var(--foreground));
 }
 
 .underline-squiggle {
-    text-decoration: underline wavy hsl(var(--foreground));
+  text-decoration: underline wavy hsl(var(--foreground));
 }

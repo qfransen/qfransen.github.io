@@ -35,10 +35,10 @@ export default function Page() {
 //     </>);
 // }
 //
-function subsection(sectionName: string): JSX.Element {
+function subsection(sectionName: string, padding_class?: string): JSX.Element {
     return (<>
-        <hr className={"subsectionSeparator content-wrapper"} />
-        <h2 className={"content-wrapper underline-b"}>{sectionName}</h2>
+        {/*<hr className={"subsectionSeparator content-wrapper"} />*/}
+        <h2 className={`content-wrapper border-b pb-2 ${padding_class}`}>{sectionName}</h2>
     </>);
 }
 
@@ -212,7 +212,7 @@ function fullProjects(): JSX.Element {
         {createProject('LeCalculator', 'Coming soon...',
         "lecalculator")}
 
-        {subsection('School Projects')}
+        {subsection('School Projects', 'pt-8')}
         {createProject('Car Image Classifier', 'An image classifier created as a group project' +
             'in my Machine Learning class at MSU',
         "car-image-classifier")}

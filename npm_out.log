@@ -1,0 +1,29 @@
+
+> qfransen.github.io@0.1.0 dev
+> next dev --turbopack
+
+ ⚠ Port 3000 is in use by an unknown process, using available port 3002 instead.
+   ▲ Next.js 15.5.9 (Turbopack)
+   - Local:        http://localhost:3002
+   - Network:      http://192.168.0.2:3002
+
+ ✓ Starting...
+ ✓ Ready in 1810ms
+ ○ Compiling /projects ...
+ ✓ Compiled /projects in 8.1s
+ ⨯ [Error: Image Optimization using the default loader is not compatible with `{ output: 'export' }`.
+  Possible solutions:
+    - Remove `{ output: 'export' }` and run "next start" to run server mode including the Image Optimization API.
+    - Configure `{ images: { unoptimized: true } }` in `next.config.js` to disable the Image Optimization API.
+  Read more: https://nextjs.org/docs/messages/export-image-api] {
+  digest: '2989970013'
+}
+ GET /projects 500 in 9353ms
+ ⨯ [Error: Image Optimization using the default loader is not compatible with `{ output: 'export' }`.
+  Possible solutions:
+    - Remove `{ output: 'export' }` and run "next start" to run server mode including the Image Optimization API.
+    - Configure `{ images: { unoptimized: true } }` in `next.config.js` to disable the Image Optimization API.
+  Read more: https://nextjs.org/docs/messages/export-image-api] {
+  digest: '2989970013'
+}
+ GET /projects 500 in 539ms

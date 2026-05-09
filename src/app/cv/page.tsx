@@ -83,7 +83,10 @@ function fullEducation(): JSX.Element {
         'September 2023 - December 2025', 'Bachelor of Science, Computer Science',
         ['Spartan Brass', 'Honors College', 'Michigander Scholar','Running Club'],
             ['Alumni Distinguished Scholars Semi-finalist',
-            'Honors College Invite', 'Professorial Assistantship', 'TODO: look up MSU scholarships'])}
+            'Honors College', 'Professorial Assistantship',
+            'Weiler Law Group Scholarhip', 'Midland Distinguished Scholarship',
+            'Marion L. and Harriet I. Bandeen Scholarship', 'Richard Reed Scholarship/Fellowship',
+            'Reetz Family Honors College Scholarship'])}
 
         {createEducation('Delta College', 'University Center, Michigan', '3.99',
         'September 2020 - April 2023', 'Associate in Science, General Science',

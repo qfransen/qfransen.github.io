@@ -325,7 +325,31 @@ function fullProjects(): JSX.Element {
 
       {createProject("LeCalculator", "Coming soon...", "lecalculator")}
 
+      {createProject(
+        "CAV Traffic Light Attack Simulation",
+        "A webpage simulation demonstrating the effects of a traffic light attack on connected and autonomous vehicles",
+        "cav-traffic-light-attack-simulation"
+      )}
+
       {subsection("School Projects", "pt-8")}
+      {createProject(
+        "Traffic Accident Simulation Paper",
+        "A group project addressing the impact of the levels of connectivity when there is an accident on a large throughput highway",
+        "traffic-accident-simulation-paper"
+      )}
+
+      {createProject(
+        "Flight Delay Predictor",
+        "A flight delay prediction application that evaluates the risk of a delay by combining historical flight records with weather conditions",
+        "flight-delay-predictor"
+      )}
+
+      {createProject(
+        "Nuclear Energy Website",
+        "An interactive nuclear energy demo designed to promote nuclear energy in the state of Michigan, built in collaboration with the Anthropocene Institute",
+        "nuclear-energy-website"
+      )}
+
       {createProject(
         "Car Image Classifier",
         "An image classifier created as a group project" +

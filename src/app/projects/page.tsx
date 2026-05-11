@@ -36,10 +36,17 @@ export default function Page() {
           )}
           {createProject(
             "LeCalculator",
-            undefined,
+            "LeCalculator.png",
             "A personal project calculator and unit converter with built in Easter Eggs",
             ["Javascript", "CSS"],
             "https://www.egr.msu.edu/~fransenq/projects/LeCalculator/",
+          )}
+          {createProject(
+            "CAV Traffic Light Attack Simulation",
+            "intersection.png",
+            "CSE 834",
+            ["Javascript", "CSS"],
+            "https://www.egr.msu.edu/~fransenq/projects/intersection/"
           )}
         </div>
       </section>
@@ -48,11 +55,41 @@ export default function Page() {
         <h2 className="mb-8 border-b pb-2">School Projects</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {createProject(
+            "Traffic Accident Simulation Paper",
+            "SUMO_gifStill.png",
+            "A group project in CSE 834 where we attempted to create a novel simulation. This " +
+            "research addresses the impact of the levels of connectivity when there is an accident on a " +
+            "large throughput highway.",
+            ["SUMO", "Python"],
+            "https://github.com/qfransen/CSE834_Experiment",
+          )}
+          {createProject(
+            "Flight Delay Predictor",
+            "weather.png",
+            "Project for CSE 881 which is a flight delay prediction application that evaluates the risk of a delay " +
+            "by combining historical flight records with weather conditions. " +
+            "It fetches weather information and derives temporal features to feed into a pre-trained machine " +
+            "learning pipeline.",
+            ["Python", "scikit-learn", "Streamlit"],
+            "https://weather-or-not-ish48lyykk4yi3g4hacmbr.streamlit.app/",
+          )}
+          {createProject(
+            "Nuclear Energy Website",
+            "capstone.png",
+            <>
+              An interactive nuclear energy demo designed to promote nuclear energy in the state of Michigan.
+              We built this in collaboration with the <a href="https://anthropoceneinstitute.com/" target="_blank"
+              rel="noopener noreferrer">Anthropocene Institute</a> in our capstone class at MSU (CSE 498).
+            </>,
+            ["React"]
+          )}
+          {createProject(
             "Car Image Classifier",
             "car-classifier.png",
-            "A group project in CSE404 at MSU that used Machine Learning to predict the types of " +
-              "vehicles show in images",
-            ["Python", "ML"],
+            "This project for CSE 404 focuses on vehicle classification through image recognition, utilizing a " +
+            "Convolutional Neural Network (CNN) to identify the make and model of cars from the high-resolution " +
+            "Stanford Cars dataset.",
+            ["Python", "Tensorflow", "Keras"],
           )}
           {createProject(
             "NFL Game Outcome Predictor",
@@ -112,7 +149,7 @@ export default function Page() {
 function createProject(
   name: string,
   image?: string,
-  description?: string,
+  description?: React.ReactNode,
   techStack?: string[],
   link?: string,
 ): JSX.Element {

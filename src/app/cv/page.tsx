@@ -323,31 +323,39 @@ function fullProjects(): JSX.Element {
         "snell's-law",
       )}
 
-      {createProject("LeCalculator", "Coming soon...", "lecalculator")}
+      {createProject(
+        "LeCalculator",
+        "A personal project calculator and unit converter with built in Easter Eggs",
+        "lecalculator",
+      )}
 
       {createProject(
         "CAV Traffic Light Attack Simulation",
-        "A webpage simulation demonstrating the effects of a traffic light attack on connected and autonomous vehicles",
-        "cav-traffic-light-attack-simulation"
+        "A webpage simulation demonstrating the effects of a traffic light attack on connected " +
+          "and autonomous vehicles",
+        "cav-traffic-light-attack-simulation",
       )}
 
       {subsection("School Projects", "pt-8")}
       {createProject(
         "Traffic Accident Simulation Paper",
-        "A group project addressing the impact of the levels of connectivity when there is an accident on a large throughput highway",
-        "traffic-accident-simulation-paper"
+        "A group project addressing the impact of the levels of connectivity when there is an accident " +
+          "on a large throughput highway",
+        "traffic-accident-simulation-paper",
       )}
 
       {createProject(
         "Flight Delay Predictor",
-        "A flight delay prediction application that evaluates the risk of a delay by combining historical flight records with weather conditions",
-        "flight-delay-predictor"
+        "A flight delay prediction application that evaluates the risk of a delay by combining " +
+          "historical flight records with weather conditions",
+        "flight-delay-predictor",
       )}
 
       {createProject(
         "Nuclear Energy Website",
-        "An interactive nuclear energy demo designed to promote nuclear energy in the state of Michigan, built in collaboration with the Anthropocene Institute",
-        "nuclear-energy-website"
+        "An interactive nuclear energy demo designed to promote nuclear energy in the state of Michigan, " +
+          "built in collaboration with the Anthropocene Institute",
+        "nuclear-energy-website",
       )}
 
       {createProject(

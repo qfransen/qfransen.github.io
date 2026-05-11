@@ -44,7 +44,8 @@ export default function Page() {
           {createProject(
             "CAV Traffic Light Attack Simulation",
             "intersection.png",
-            "CSE 834",
+            "A webpage simulation demonstrating the effects of a traffic light attack on " +
+              "connected and autonomous vehicles. Originally created for CSE 834.",
             ["Javascript", "CSS"],
             "https://www.egr.msu.edu/~fransenq/projects/intersection/",
           )}

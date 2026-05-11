@@ -46,7 +46,7 @@ export default function Page() {
             "intersection.png",
             "CSE 834",
             ["Javascript", "CSS"],
-            "https://www.egr.msu.edu/~fransenq/projects/intersection/"
+            "https://www.egr.msu.edu/~fransenq/projects/intersection/",
           )}
         </div>
       </section>
@@ -58,8 +58,8 @@ export default function Page() {
             "Traffic Accident Simulation Paper",
             "SUMO_gifStill.png",
             "A group project in CSE 834 where we attempted to create a novel simulation. This " +
-            "research addresses the impact of the levels of connectivity when there is an accident on a " +
-            "large throughput highway.",
+              "research addresses the impact of the levels of connectivity when there is an accident on a " +
+              "large throughput highway.",
             ["SUMO", "Python"],
             "https://github.com/qfransen/CSE834_Experiment",
           )}
@@ -67,9 +67,9 @@ export default function Page() {
             "Flight Delay Predictor",
             "weather.png",
             "Project for CSE 881 which is a flight delay prediction application that evaluates the risk of a delay " +
-            "by combining historical flight records with weather conditions. " +
-            "It fetches weather information and derives temporal features to feed into a pre-trained machine " +
-            "learning pipeline.",
+              "by combining historical flight records with weather conditions. " +
+              "It fetches weather information and derives temporal features to feed into a pre-trained machine " +
+              "learning pipeline.",
             ["Python", "scikit-learn", "Streamlit"],
             "https://weather-or-not-ish48lyykk4yi3g4hacmbr.streamlit.app/",
           )}
@@ -77,18 +77,26 @@ export default function Page() {
             "Nuclear Energy Website",
             "capstone.png",
             <>
-              An interactive nuclear energy demo designed to promote nuclear energy in the state of Michigan.
-              We built this in collaboration with the <a href="https://anthropoceneinstitute.com/" target="_blank"
-              rel="noopener noreferrer">Anthropocene Institute</a> in our capstone class at MSU (CSE 498).
+              An interactive nuclear energy demo designed to promote nuclear
+              energy in the state of Michigan. We built this in collaboration
+              with the{" "}
+              <a
+                href="https://anthropoceneinstitute.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Anthropocene Institute
+              </a>{" "}
+              in our capstone class at MSU (CSE 498).
             </>,
-            ["React"]
+            ["React"],
           )}
           {createProject(
             "Car Image Classifier",
             "car-classifier.png",
             "This project for CSE 404 focuses on vehicle classification through image recognition, utilizing a " +
-            "Convolutional Neural Network (CNN) to identify the make and model of cars from the high-resolution " +
-            "Stanford Cars dataset.",
+              "Convolutional Neural Network (CNN) to identify the make and model of cars from the high-resolution " +
+              "Stanford Cars dataset.",
             ["Python", "Tensorflow", "Keras"],
           )}
           {createProject(

@@ -1,9 +1,10 @@
 import React from "react";
 import { render, screen, fireEvent } from "@testing-library/react";
+import { describe, it, expect, vi } from "vitest";
 import Navbar from "./navbar";
 
 // Mock next/link
-jest.mock("next/link", () => {
+vi.mock("next/link", () => {
   const MockedLink = ({ href, children, ...props }: any) => {
     return (
       <a href={href} {...props}>
@@ -12,11 +13,11 @@ jest.mock("next/link", () => {
     );
   };
   MockedLink.displayName = "MockedLink";
-  return MockedLink;
+  return { default: MockedLink };
 });
 
 // Mock next-themes
-jest.mock("@/components/theme-toggle", () => {
+vi.mock("@/components/theme-toggle", () => {
   const MockedThemeToggle = () => <button data-testid="theme-toggle">ThemeToggle</button>;
   MockedThemeToggle.displayName = "MockedThemeToggle";
   return { ThemeToggle: MockedThemeToggle };

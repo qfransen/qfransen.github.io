@@ -5,7 +5,11 @@ import Navbar from "./navbar";
 
 // Mock next/link
 vi.mock("next/link", () => {
-  const MockedLink = ({ href, children, ...props }: React.ComponentProps<"a">) => {
+  const MockedLink = ({
+    href,
+    children,
+    ...props
+  }: React.ComponentProps<"a">) => {
     return (
       <a href={href} {...props}>
         {children}

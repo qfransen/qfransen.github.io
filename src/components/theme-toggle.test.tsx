@@ -10,7 +10,7 @@ vi.mock("next-themes", () => ({
 }));
 
 describe("ThemeToggle", () => {
-  const mockSetTheme = vi.fn<UseThemeProps["setTheme"]>();
+  const mockSetTheme: UseThemeProps["setTheme"] = vi.fn();
 
   const mockUseTheme = (resolvedTheme: "light" | "dark") => {
     vi.mocked(useTheme).mockReturnValue({

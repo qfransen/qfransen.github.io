@@ -31,7 +31,9 @@ describe("ThemeToggle", () => {
     mockUseTheme("light");
 
     render(<ThemeToggle />);
-    expect(screen.getByRole("button", { name: /toggle theme/i })).toBeInTheDocument();
+    expect(
+      screen.getByRole("button", { name: /toggle theme/i }),
+    ).toBeInTheDocument();
   });
 
   it("should switch to dark theme when current theme is light", () => {

@@ -18,7 +18,9 @@ vi.mock("next/link", () => {
 
 // Mock next-themes
 vi.mock("@/components/theme-toggle", () => {
-  const MockedThemeToggle = () => <button data-testid="theme-toggle">ThemeToggle</button>;
+  const MockedThemeToggle = () => (
+    <button data-testid="theme-toggle">ThemeToggle</button>
+  );
   MockedThemeToggle.displayName = "MockedThemeToggle";
   return { ThemeToggle: MockedThemeToggle };
 });

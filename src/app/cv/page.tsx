@@ -24,13 +24,6 @@ export default function Page() {
   );
 }
 
-// function section(sectionName: string): JSX.Element {
-//     return (<>
-//         <hr className={"sectionSeparator"} />
-//         <h2 className={"content-wrapper"}>{sectionName}</h2>
-//     </>);
-// }
-//
 function subsection(sectionName: string, padding_class?: string): JSX.Element {
   return (
     <>

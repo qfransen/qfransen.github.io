@@ -2,33 +2,34 @@ import * as React from "react";
 import { render, screen, fireEvent } from "@testing-library/react";
 import { ThemeToggle } from "./theme-toggle";
 import { useTheme } from "next-themes";
+import { vi } from "vitest";
 
-jest.mock("next-themes", () => ({
-  useTheme: jest.fn(),
+vi.mock("next-themes", () => ({
+  useTheme: vi.fn(),
 }));
 
 describe("ThemeToggle", () => {
-  const mockSetTheme = jest.fn();
+  const mockSetTheme = vi.fn();
 
   beforeEach(() => {
-    jest.clearAllMocks();
+    vi.clearAllMocks();
   });
 
   it("should render successfully", () => {
-    (useTheme as jest.Mock).mockReturnValue({
+    vi.mocked(useTheme).mockReturnValue({
       resolvedTheme: "light",
       setTheme: mockSetTheme,
-    });
+    } as any);
 
     render(<ThemeToggle />);
     expect(screen.getByRole("button", { name: /toggle theme/i })).toBeInTheDocument();
   });
 
   it("should switch to dark theme when current theme is light", () => {
-    (useTheme as jest.Mock).mockReturnValue({
+    vi.mocked(useTheme).mockReturnValue({
       resolvedTheme: "light",
       setTheme: mockSetTheme,
-    });
+    } as any);
 
     render(<ThemeToggle />);
     fireEvent.click(screen.getByRole("button", { name: /toggle theme/i }));
@@ -37,10 +38,10 @@ describe("ThemeToggle", () => {
   });
 
   it("should switch to light theme when current theme is dark", () => {
-    (useTheme as jest.Mock).mockReturnValue({
+    vi.mocked(useTheme).mockReturnValue({
       resolvedTheme: "dark",
       setTheme: mockSetTheme,
-    });
+    } as any);
 
     render(<ThemeToggle />);
     fireEvent.click(screen.getByRole("button", { name: /toggle theme/i }));

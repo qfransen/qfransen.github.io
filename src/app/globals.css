@@ -6,6 +6,10 @@
   --mainblue: rgba(100, 141, 227, 1);
 }
 
+html {
+  overflow-y: scroll;
+}
+
 body {
   font-family:
     Computer Modern,

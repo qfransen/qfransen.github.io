@@ -1,62 +1,50 @@
 npm warn exec The following package was not found and will be installed: serve@14.2.6
- INFO  Accepting connections at http://localhost:38149
- HTTP  5/9/2026 1:31:48 AM ::1 GET /projects.html
- HTTP  5/9/2026 1:31:48 AM ::1 Returned 301 in 241 ms
- HTTP  5/9/2026 1:32:01 AM ::1 GET /projects.html
- HTTP  5/9/2026 1:32:01 AM ::1 Returned 301 in 1 ms
- HTTP  5/9/2026 1:32:01 AM ::1 GET /projects
- HTTP  5/9/2026 1:32:01 AM ::1 Returned 200 in 12 ms
- HTTP  5/9/2026 1:32:01 AM ::1 GET /_next/static/media/155cae559bbd1a77-s.p.woff2
- HTTP  5/9/2026 1:32:01 AM ::1 GET /_next/static/css/fe52ee534224d02d.css
- HTTP  5/9/2026 1:32:01 AM ::1 GET /_next/static/css/08ebc70a5fdebc1b.css
- HTTP  5/9/2026 1:32:01 AM ::1 GET /_next/static/media/4de1fea1a954a5b6-s.p.woff2
- HTTP  5/9/2026 1:32:01 AM ::1 GET /_next/static/media/55c20a7790588da9-s.p.woff2
- HTTP  5/9/2026 1:32:01 AM ::1 GET /_next/static/media/6d664cce900333ee-s.p.woff2
- HTTP  5/9/2026 1:32:01 AM ::1 Returned 200 in 9 ms
- HTTP  5/9/2026 1:32:01 AM ::1 Returned 200 in 9 ms
- HTTP  5/9/2026 1:32:01 AM ::1 Returned 200 in 9 ms
- HTTP  5/9/2026 1:32:01 AM ::1 Returned 200 in 8 ms
- HTTP  5/9/2026 1:32:01 AM ::1 Returned 200 in 8 ms
- HTTP  5/9/2026 1:32:01 AM ::1 Returned 200 in 8 ms
- HTTP  5/9/2026 1:32:01 AM ::1 GET /_next/static/media/7ff6869a1704182a-s.p.woff2
- HTTP  5/9/2026 1:32:01 AM ::1 GET /_next/static/chunks/webpack-c6c76712bbd73e96.js
- HTTP  5/9/2026 1:32:01 AM ::1 GET /_next/static/chunks/4bd1b696-c023c6e3521b1417.js
- HTTP  5/9/2026 1:32:01 AM ::1 GET /_next/static/chunks/255-293e44824f2ec188.js
- HTTP  5/9/2026 1:32:01 AM ::1 GET /_next/static/chunks/main-app-2ecc3bf42ae2d122.js
- HTTP  5/9/2026 1:32:01 AM ::1 GET /_next/static/chunks/app/layout-40f45a7ae98ad29b.js
- HTTP  5/9/2026 1:32:01 AM ::1 Returned 200 in 5 ms
- HTTP  5/9/2026 1:32:01 AM ::1 Returned 200 in 7 ms
- HTTP  5/9/2026 1:32:01 AM ::1 Returned 200 in 6 ms
- HTTP  5/9/2026 1:32:01 AM ::1 Returned 200 in 7 ms
- HTTP  5/9/2026 1:32:01 AM ::1 GET /_next/static/chunks/356-e5489542cb0f1b9a.js
- HTTP  5/9/2026 1:32:01 AM ::1 Returned 200 in 12 ms
- HTTP  5/9/2026 1:32:01 AM ::1 Returned 200 in 12 ms
- HTTP  5/9/2026 1:32:01 AM ::1 GET /_next/static/chunks/app/projects/page-72ef596b7e61ee8c.js
- HTTP  5/9/2026 1:32:01 AM ::1 Returned 200 in 12 ms
- HTTP  5/9/2026 1:32:01 AM ::1 Returned 200 in 11 ms
- HTTP  5/9/2026 1:32:01 AM ::1 GET /_next/image?url=%2Fimages%2Fprojects%2Fsnells.png&w=1920&q=75
- HTTP  5/9/2026 1:32:01 AM ::1 GET /_next/image?url=%2Fimages%2Fprojects%2Fcar-classifier.png&w=1920&q=75
- HTTP  5/9/2026 1:32:01 AM ::1 GET /_next/image?url=%2Fimages%2Fprojects%2Ffootball-scores.png&w=1920&q=75
- HTTP  5/9/2026 1:32:01 AM ::1 GET /_next/image?url=%2Fimages%2Fprojects%2Fautonomous1.png&w=1920&q=75
- HTTP  5/9/2026 1:32:01 AM ::1 GET /_next/image?url=%2Fimages%2Fprojects%2Fanimation.png&w=1920&q=75
- HTTP  5/9/2026 1:32:01 AM ::1 GET /_next/image?url=%2Fimages%2Fprojects%2Flogic-game.png&w=1920&q=75
- HTTP  5/9/2026 1:32:01 AM ::1 Returned 404 in 11 ms
- HTTP  5/9/2026 1:32:01 AM ::1 Returned 404 in 13 ms
- HTTP  5/9/2026 1:32:01 AM ::1 Returned 404 in 14 ms
- HTTP  5/9/2026 1:32:01 AM ::1 Returned 404 in 13 ms
- HTTP  5/9/2026 1:32:01 AM ::1 Returned 404 in 13 ms
- HTTP  5/9/2026 1:32:01 AM ::1 Returned 404 in 13 ms
- HTTP  5/9/2026 1:32:01 AM ::1 GET /_next/image?url=%2Fimages%2Fprojects%2Fblimps.png&w=1920&q=75
- HTTP  5/9/2026 1:32:01 AM ::1 Returned 404 in 2 ms
- HTTP  5/9/2026 1:32:01 AM ::1 GET /index.txt?_rsc=1ynka
- HTTP  5/9/2026 1:32:01 AM ::1 GET /cv.txt?_rsc=1ynka
- HTTP  5/9/2026 1:32:01 AM ::1 GET /hire.txt?_rsc=1ynka
- HTTP  5/9/2026 1:32:01 AM ::1 Returned 200 in 5 ms
- HTTP  5/9/2026 1:32:01 AM ::1 Returned 200 in 4 ms
- HTTP  5/9/2026 1:32:01 AM ::1 Returned 200 in 3 ms
- HTTP  5/9/2026 1:32:01 AM ::1 GET /_next/static/chunks/app/page-1593da03fa4a2026.js
- HTTP  5/9/2026 1:32:01 AM ::1 GET /_next/static/chunks/app/cv/page-839c6858ede684e2.js
- HTTP  5/9/2026 1:32:01 AM ::1 GET /_next/static/css/cf456bf3749bd839.css
- HTTP  5/9/2026 1:32:01 AM ::1 Returned 200 in 6 ms
- HTTP  5/9/2026 1:32:01 AM ::1 Returned 200 in 5 ms
- HTTP  5/9/2026 1:32:01 AM ::1 Returned 200 in 5 ms
+ INFO  Accepting connections at http://localhost:3000
+ HTTP  5/27/2026 3:24:52 AM ::1 GET /projects/liquor-store-nav
+ HTTP  5/27/2026 3:24:52 AM ::1 Returned 200 in 420 ms
+ HTTP  5/27/2026 3:24:52 AM ::1 GET /_next/static/media/155cae559bbd1a77-s.p.woff2
+ HTTP  5/27/2026 3:24:52 AM ::1 GET /_next/static/css/6ba58733a01c9783.css
+ HTTP  5/27/2026 3:24:52 AM ::1 GET /_next/static/media/4de1fea1a954a5b6-s.p.woff2
+ HTTP  5/27/2026 3:24:52 AM ::1 GET /_next/static/media/55c20a7790588da9-s.p.woff2
+ HTTP  5/27/2026 3:24:52 AM ::1 GET /_next/static/media/6d664cce900333ee-s.p.woff2
+ HTTP  5/27/2026 3:24:52 AM ::1 GET /_next/static/media/7ff6869a1704182a-s.p.woff2
+ HTTP  5/27/2026 3:24:52 AM ::1 Returned 200 in 8 ms
+ HTTP  5/27/2026 3:24:52 AM ::1 Returned 200 in 6 ms
+ HTTP  5/27/2026 3:24:52 AM ::1 Returned 200 in 8 ms
+ HTTP  5/27/2026 3:24:52 AM ::1 Returned 200 in 8 ms
+ HTTP  5/27/2026 3:24:52 AM ::1 Returned 200 in 8 ms
+ HTTP  5/27/2026 3:24:52 AM ::1 Returned 200 in 8 ms
+ HTTP  5/27/2026 3:24:52 AM ::1 GET /_next/static/chunks/webpack-c6c76712bbd73e96.js
+ HTTP  5/27/2026 3:24:52 AM ::1 GET /_next/static/chunks/4bd1b696-c023c6e3521b1417.js
+ HTTP  5/27/2026 3:24:52 AM ::1 GET /_next/static/chunks/255-293e44824f2ec188.js
+ HTTP  5/27/2026 3:24:52 AM ::1 GET /_next/static/chunks/main-app-2ecc3bf42ae2d122.js
+ HTTP  5/27/2026 3:24:52 AM ::1 GET /_next/static/chunks/619-ba102abea3e3d0e4.js
+ HTTP  5/27/2026 3:24:52 AM ::1 GET /_next/static/chunks/app/layout-3160322e3e27cafc.js
+ HTTP  5/27/2026 3:24:52 AM ::1 Returned 200 in 8 ms
+ HTTP  5/27/2026 3:24:52 AM ::1 Returned 200 in 6 ms
+ HTTP  5/27/2026 3:24:52 AM ::1 Returned 200 in 7 ms
+ HTTP  5/27/2026 3:24:52 AM ::1 Returned 200 in 7 ms
+ HTTP  5/27/2026 3:24:52 AM ::1 Returned 200 in 10 ms
+ HTTP  5/27/2026 3:24:52 AM ::1 Returned 200 in 13 ms
+ HTTP  5/27/2026 3:24:52 AM ::1 GET /_next/static/chunks/app/projects/liquor-store-nav/page-e11246f9d44c05c4.js
+ HTTP  5/27/2026 3:24:52 AM ::1 Returned 200 in 25 ms
+ HTTP  5/27/2026 3:24:53 AM ::1 GET /index.txt?_rsc=19dd8
+ HTTP  5/27/2026 3:24:53 AM ::1 GET /projects.txt?_rsc=19dd8
+ HTTP  5/27/2026 3:24:53 AM ::1 GET /cv.txt?_rsc=19dd8
+ HTTP  5/27/2026 3:24:53 AM ::1 GET /hire.txt?_rsc=19dd8
+ HTTP  5/27/2026 3:24:53 AM ::1 Returned 200 in 11 ms
+ HTTP  5/27/2026 3:24:53 AM ::1 Returned 200 in 11 ms
+ HTTP  5/27/2026 3:24:53 AM ::1 Returned 200 in 11 ms
+ HTTP  5/27/2026 3:24:53 AM ::1 Returned 200 in 11 ms
+ HTTP  5/27/2026 3:24:53 AM ::1 GET /_next/static/chunks/app/page-1593da03fa4a2026.js
+ HTTP  5/27/2026 3:24:53 AM ::1 Returned 200 in 2 ms
+ HTTP  5/27/2026 3:24:53 AM ::1 GET /_next/static/css/08ebc70a5fdebc1b.css
+ HTTP  5/27/2026 3:24:53 AM ::1 GET /_next/static/chunks/356-f53269e63c687b55.js
+ HTTP  5/27/2026 3:24:53 AM ::1 GET /_next/static/chunks/app/projects/page-bc19012355c6ec3c.js
+ HTTP  5/27/2026 3:24:53 AM ::1 GET /_next/static/css/204e2e84a4f6e4a5.css
+ HTTP  5/27/2026 3:24:53 AM ::1 GET /_next/static/chunks/app/cv/page-839c6858ede684e2.js
+ HTTP  5/27/2026 3:24:53 AM ::1 Returned 200 in 7 ms
+ HTTP  5/27/2026 3:24:53 AM ::1 Returned 200 in 7 ms
+ HTTP  5/27/2026 3:24:53 AM ::1 Returned 200 in 8 ms
+ HTTP  5/27/2026 3:24:53 AM ::1 Returned 200 in 6 ms
+ HTTP  5/27/2026 3:24:53 AM ::1 Returned 200 in 6 ms

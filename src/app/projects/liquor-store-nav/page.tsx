@@ -15,33 +15,44 @@ interface Store {
 }
 
 // Haversine formula to calculate distance in meters
-function calculateDistance(lat1: number, lon1: number, lat2: number, lon2: number): number {
+function calculateDistance(
+  lat1: number,
+  lon1: number,
+  lat2: number,
+  lon2: number,
+): number {
   const R = 6371e3; // Earth radius in meters
-  const φ1 = (lat1 * Math.PI) / 180;
-  const φ2 = (lat2 * Math.PI) / 180;
-  const Δφ = ((lat2 - lat1) * Math.PI) / 180;
-  const Δλ = ((lon2 - lon1) * Math.PI) / 180;
+  const phi1 = (lat1 * Math.PI) / 180;
+  const phi2 = (lat2 * Math.PI) / 180;
+  const deltaPhi = ((lat2 - lat1) * Math.PI) / 180;
+  const deltaLambda = ((lon2 - lon1) * Math.PI) / 180;
 
   const a =
-    Math.sin(Δφ / 2) * Math.sin(Δφ / 2) +
-    Math.cos(φ1) * Math.cos(φ2) * Math.sin(Δλ / 2) * Math.sin(Δλ / 2);
+    Math.sin(deltaPhi / 2) * Math.sin(deltaPhi / 2) +
+    Math.cos(phi1) * Math.cos(phi2) * Math.sin(deltaLambda / 2) * Math.sin(deltaLambda / 2);
   const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
 
   return R * c;
 }
 
 // Calculate bearing and cardinal direction
-function getDirection(lat1: number, lon1: number, lat2: number, lon2: number): string {
-  const φ1 = (lat1 * Math.PI) / 180;
-  const φ2 = (lat2 * Math.PI) / 180;
-  const λ1 = (lon1 * Math.PI) / 180;
-  const λ2 = (lon2 * Math.PI) / 180;
+function getDirection(
+  lat1: number,
+  lon1: number,
+  lat2: number,
+  lon2: number,
+): string {
+  const phi1 = (lat1 * Math.PI) / 180;
+  const phi2 = (lat2 * Math.PI) / 180;
+  const lambda1 = (lon1 * Math.PI) / 180;
+  const lambda2 = (lon2 * Math.PI) / 180;
 
-  const y = Math.sin(λ2 - λ1) * Math.cos(φ2);
+  const y = Math.sin(lambda2 - lambda1) * Math.cos(phi2);
   const x =
-    Math.cos(φ1) * Math.sin(φ2) - Math.sin(φ1) * Math.cos(φ2) * Math.cos(λ2 - λ1);
-  const θ = Math.atan2(y, x);
-  const bearing = ((θ * 180) / Math.PI + 360) % 360;
+    Math.cos(phi1) * Math.sin(phi2) -
+    Math.sin(phi1) * Math.cos(phi2) * Math.cos(lambda2 - lambda1);
+  const theta = Math.atan2(y, x);
+  const bearing = ((theta * 180) / Math.PI + 360) % 360;
 
   const directions = ["N", "NE", "E", "SE", "S", "SW", "W", "NW"];
   return directions[Math.round(bearing / 45) % 8];
@@ -78,21 +89,31 @@ export default function LiquorStoreNav() {
       const data = await response.json();
 
       // For ways and relations, overpass with 'out center;' provides lat/lon directly on the element
-      const fetchedStores = data.elements.map((el: { id: number; lat?: number; lon?: number; center?: { lat: number; lon: number }; tags?: Record<string, string> }) => {
-        const storeLat = el.lat || el.center?.lat || 0;
-        const storeLon = el.lon || el.center?.lon || 0;
-        return {
-          id: el.id,
-          lat: storeLat,
-          lon: storeLon,
-          tags: el.tags || {},
-          distance: calculateDistance(lat, lon, storeLat, storeLon),
-          direction: getDirection(lat, lon, storeLat, storeLon),
-        };
-      });
+      const fetchedStores = data.elements.map(
+        (el: {
+          id: number;
+          lat?: number;
+          lon?: number;
+          center?: { lat: number; lon: number };
+          tags?: Record<string, string>;
+        }) => {
+          const storeLat = el.lat || el.center?.lat || 0;
+          const storeLon = el.lon || el.center?.lon || 0;
+          return {
+            id: el.id,
+            lat: storeLat,
+            lon: storeLon,
+            tags: el.tags || {},
+            distance: calculateDistance(lat, lon, storeLat, storeLon),
+            direction: getDirection(lat, lon, storeLat, storeLon),
+          };
+        },
+      );
 
       // Sort stores by distance (closest first)
-      fetchedStores.sort((a: Store, b: Store) => (a.distance || 0) - (b.distance || 0));
+      fetchedStores.sort(
+        (a: Store, b: Store) => (a.distance || 0) - (b.distance || 0),
+      );
 
       setStores(fetchedStores);
     } catch {
@@ -115,14 +136,16 @@ export default function LiquorStoreNav() {
         fetchStores(position.coords.latitude, position.coords.longitude);
       },
       () => {
-        setLocationError("Unable to retrieve your location. Please ensure location services are enabled.");
+        setLocationError(
+          "Unable to retrieve your location. Please ensure location services are enabled.",
+        );
         setLoading(false);
       },
       {
         enableHighAccuracy: true,
         timeout: 10000,
         maximumAge: 0,
-      }
+      },
     );
   }, []);
 
@@ -139,7 +162,9 @@ export default function LiquorStoreNav() {
           <div className="flex flex-col items-center justify-center py-12">
             <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary"></div>
             <p className="mt-4 text-muted-foreground">
-              {!location ? "Getting your location..." : "Searching for liquor stores..."}
+              {!location
+                ? "Getting your location..."
+                : "Searching for liquor stores..."}
             </p>
           </div>
         )}
@@ -164,7 +189,9 @@ export default function LiquorStoreNav() {
               </p>
             ) : (
               <div>
-                <p className="mb-4">Found {stores.length} store(s) within 2.5km:</p>
+                <p className="mb-4">
+                  Found {stores.length} store(s) within 2.5km:
+                </p>
                 <ul className="space-y-3">
                   {stores.map((store) => {
                     const distanceDisplay = store.distance
@@ -174,12 +201,17 @@ export default function LiquorStoreNav() {
                       : "Unknown distance";
 
                     return (
-                      <li key={store.id} className="p-4 border rounded-md bg-card hover:bg-accent/50 transition-colors">
+                      <li
+                        key={store.id}
+                        className="p-4 border rounded-md bg-card hover:bg-accent/50 transition-colors"
+                      >
                         <div className="flex justify-between items-start">
                           <div>
-                            <strong className="text-lg">{store.tags.name || "Unknown Store"}</strong>
+                            <strong className="text-lg">
+                              {store.tags.name || "Unknown Store"}
+                            </strong>
                             <div className="text-sm text-muted-foreground mt-1">
-                              {distanceDisplay} • {store.direction}
+                              {distanceDisplay} - {store.direction}
                             </div>
                           </div>
                         </div>

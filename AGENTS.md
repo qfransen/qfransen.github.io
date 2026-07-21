@@ -18,14 +18,21 @@ Please ensure that all tests pass after making changes.
 This project enforces code quality and formatting rules. Before finalizing your changes, you should run the linter and formatter:
 
 - **Linter (ESLint):**
+
   ```bash
   npm run lint
   ```
 
 - **Code Formatter (Prettier):**
+  This project uses Prettier for code formatting (see `prettier` in `package.json`). You can check whether files are formatted with:
   ```bash
   npm run format:check
   ```
+  To format files locally, run:
+  ```bash
+  npx prettier --write .
+  ```
+  Prettier is also run on staged files via `lint-staged`/Husky (pre-commit), so changes will be auto-formatted on commit if staged.
 
 ## Visualizing the Webpage
 

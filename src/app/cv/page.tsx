@@ -140,7 +140,7 @@ function fullEducation(): JSX.Element {
       {createEducation(
         "Bullock Creek High School",
         "Midland, Michigan",
-        "4.22 - look this up",
+        "4.22",
         "September 2018 - May 2022",
         "High School Diploma",
         [
@@ -200,10 +200,12 @@ function fullExperiences(): JSX.Element {
         "AI Intern",
         "May 2026 - August 2026",
         [
-          "Built a platform bridging IAM and AI by integrating Keycloak with LangGraph, resolving authorization conflicts" +
-            " between user actions and agentic workflows",
-          "Developed a shared permission model that separated agent and user identities, paving the way for secure, " +
-            "enterprise-scale AI deployments",
+          "Engineered an agentic identity platform utilizing LangGraph and Keycloak to securely orchestrate" +
+            " access controls between autonomous AI agents and human users",
+          "Implemented Agent-to-Agent (A2A) communication architectures, facilitating secure, identity-aware" +
+            " collaboration and task hand-offs across multi-agent workflows",
+          "Developed support for external Model Context Protocol (MCP), allowing agents to securely interface" +
+            " with outside data sources and enterprise tools while maintaining strict permission boundaries",
         ],
       )}
 

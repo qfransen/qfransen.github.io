@@ -195,11 +195,16 @@ function fullExperiences(): JSX.Element {
   return (
     <>
       {createExperience(
-        "Honeywell",
+        "Honeywell Technologies",
         "Atlanta, Georgia",
-        "Intern",
+        "AI Intern",
         "May 2026 - August 2026",
-        ["I don't know yet", "Cool AI projects to come later"],
+        [
+          "Built a platform bridging IAM and AI by integrating Keycloak with LangGraph, resolving authorization conflicts" +
+            " between user actions and agentic workflows",
+          "Developed a shared permission model that separated agent and user identities, paving the way for secure, " +
+            "enterprise-scale AI deployments",
+        ],
       )}
 
       {createExperience(

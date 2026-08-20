@@ -30,7 +30,7 @@ This project enforces code quality and formatting rules. Before finalizing your 
   ```
   To format files locally, run:
   ```bash
-  npx prettier --write .
+  npm run format
   ```
   Prettier is also run on staged files via `lint-staged`/Husky (pre-commit), so changes will be auto-formatted on commit if staged.
 

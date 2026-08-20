@@ -8,7 +8,7 @@ describe("Section Component", () => {
     render(
       <Section title="Test Section">
         <div data-testid="child-content">Content</div>
-      </Section>
+      </Section>,
     );
 
     expect(screen.getByText("Test Section")).toBeInTheDocument();
@@ -23,7 +23,7 @@ describe("Section Component", () => {
     render(
       <Section title="Test Section" defaultOpen={false}>
         <div data-testid="child-content">Content</div>
-      </Section>
+      </Section>,
     );
 
     expect(screen.getByText("Test Section")).toBeInTheDocument();
@@ -37,7 +37,7 @@ describe("Section Component", () => {
     render(
       <Section title="Test Section">
         <div data-testid="child-content">Content</div>
-      </Section>
+      </Section>,
     );
 
     const button = screen.getByRole("button", { name: /test section/i });

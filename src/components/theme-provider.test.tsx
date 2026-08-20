@@ -23,7 +23,7 @@ describe("ThemeProvider", () => {
     render(
       <ThemeProvider>
         <div>{testMessage}</div>
-      </ThemeProvider>
+      </ThemeProvider>,
     );
 
     expect(screen.getByText(testMessage)).toBeInTheDocument();
@@ -33,7 +33,7 @@ describe("ThemeProvider", () => {
     render(
       <ThemeProvider attribute="class" defaultTheme="system">
         <div>Content</div>
-      </ThemeProvider>
+      </ThemeProvider>,
     );
 
     const provider = screen.getByTestId("mock-next-themes-provider");

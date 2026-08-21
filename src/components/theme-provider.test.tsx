@@ -1,10 +1,21 @@
+import type { ReactNode } from "react";
 import { render, screen } from "@testing-library/react";
 import { describe, it, expect, vi } from "vitest";
 import { ThemeProvider } from "./theme-provider";
 
 // Mock next-themes to isolate the wrapper logic
 vi.mock("next-themes", () => ({
-  ThemeProvider: ({ children, attribute, defaultTheme, ...props }: any) => (
+  ThemeProvider: ({
+    children,
+    attribute,
+    defaultTheme,
+    ...props
+  }: {
+    children?: ReactNode;
+    attribute?: string;
+    defaultTheme?: string;
+    [key: string]: unknown;
+  }) => (
     <div
       data-testid="mock-next-themes-provider"
       data-attribute={attribute}
